@@ -12,10 +12,18 @@ class Content extends AppBase {
     //options.id=5;
     
     super.onLoad(options);
+    this.Base.setMyData({
+price:this.Base.options.price
+    });
   }
   onMyShow() {
     var that = this;
     
+  }
+  bindback(e) {
+    wx.reLaunch({
+      url: '/pages/home/home'
+    })
   }
   bindphone(){
     wx.showModal({
@@ -32,4 +40,5 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindphone = content.bindphone;
+body.bindback = content.bindback;
 Page(body)

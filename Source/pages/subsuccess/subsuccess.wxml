@@ -1,11 +1,15 @@
 <!--pages/subsuccess/subsuccess.wxml-->
+<view bindtap='bindback' class='flex-row flex-center padding-left-20'>
+<image class='icon' src='{{uploadpath}}resource/{{res.left_icon}}'></image>
+<view class='txt-primary '>返回</view>
+</view>
 <view class='flex-row flex-column Top'>
   <view class='margin-top'>
     <image class='icon-75' src='{{uploadpath}}resource/{{res.Y_icon}}'></image>
   </view>
   <view class=' flex-row flex-center margin-top'>
     <view class='txt-black'>订单提交成功</view>
-    <view class='margin-left-10'>2250 元</view>
+    <view class='margin-left-10'>{{price}} 元</view>
   </view>
   <!-- <view class=' flex-row flex-center margin-top'>
     <view class='h5'>请使用订单关联手机</view>

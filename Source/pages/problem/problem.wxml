@@ -7,7 +7,7 @@
     <view class='h6 padding-left-10 padding-top-10' style='color:gray'>{{timu.length}}</view>
   </view>
 </view>
-<view>{{blockseq}}测试定价，后续删除：{{price}} - {{minusprice}} = {{totalprice}}</view>
+<!-- <view>{{blockseq}}测试定价，后续删除：{{price}} - {{minusprice}} = {{totalprice}}</view> -->
 <view class=" flex-row column " wx:for="{{timu}}" wx:key="k" wx:for-index="idx" hidden='{{timu[idx-1].xuanle==""}}' wx:if="{{blockseq==-1||idx<blockseq+1}}">
 
   <view class='flex-row flex-center ' style='margin-left:20rpx;'>

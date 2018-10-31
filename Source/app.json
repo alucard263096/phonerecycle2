@@ -1,16 +1,16 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/myorder/myorder",
+    "pages/subsuccess/subsuccess",
     "pages/aboutus/aboutus",
     "pages/details/details",
     "pages/evaluation/evaluation",
     "pages/jixingchengse/jixingchengse",
-    "pages/subsuccess/subsuccess",
     "pages/helpcenter/helpcenter",
     "pages/content/content",
     "pages/myaccount/myaccount",
     "pages/mine/mine",
-    "pages/myorder/myorder",
     "pages/orderdetails/orderdetails",
     "pages/problem/problem",
     "pages/lianxikefu/lianxikefu",

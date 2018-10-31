@@ -18,7 +18,7 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    options.id = 391;
+    //options.id = 391;
     options.new = "Y";
     super.onLoad(options);
     this.Base.setMyData({ price: 0, minusprice: 0, totalprice: 0, answer: "", blockseq:-1});

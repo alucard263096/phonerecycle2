@@ -27,12 +27,13 @@ class Content extends AppBase {
       s1: 1
     });
     this.Base.setMyData({
-      s3: 3
+      s3: 3,
+      today7: this.Base.util.FormatDate(new Date(((new Date()).getTime()) + 7 * 24 * 3600 * 1000))
     });
     this.Base.setMyData({
+      today: this.Base.util.FormatDate(new Date()),
       price: this.Base.options.price,
-      anwser: this.Base.options.anwser,
-      today: this.Base.util.FormatDate(new Date())
+      anwser: this.Base.options.anwser
     });
     console.log(options.id);
   }
@@ -56,6 +57,11 @@ class Content extends AppBase {
         modelinfo
       });
     });
+
+
+  }
+  phonenoCallback(mobile) {
+    this.Base.setMyData({ mobile: mobile });
   }
   bindelt() {
     wx.navigateBack({
@@ -67,6 +73,15 @@ class Content extends AppBase {
     wx.setClipboardData({
       data: yijianfuzhi,
     })
+  }
+  bindtishi() {
+    wx.showModal({
+      content: '如自行邮寄后回收订单失败，货品将按以下地址信息原路返回，请务必认真填写，谢谢',
+      icon: "none",
+      duration: 2000,
+      showCancel: false,
+      confirmColor: "#2699EC"
+    });
   }
   selectleft() {
     this.Base.setMyData({
@@ -158,9 +173,7 @@ class Content extends AppBase {
       this.Base.info("请输入快递单号");
       return;
     }
-  }
-  bindsubmit(e) {
-    console.log(e);
+
     var myaddress = this.Base.getMyData().myaddress;
     var citys = this.Base.getMyData().citys;
     var country = this.Base.getMyData().country;
@@ -169,6 +182,8 @@ class Content extends AppBase {
     var name = this.Base.getMyData().name;
     var address = this.Base.getMyData().address;
     var waybillnum = this.Base.getMyData().waybillnum;
+    var price = this.Base.getMyData().price;
+    var anwser = this.Base.getMyData().anwser;
     var that = this;
     var phoneapi = new PhoneApi();
     phoneapi.order({
@@ -178,21 +193,37 @@ class Content extends AppBase {
       country: country,
       mobile: mobile,
       address: address,
-      price: "3050",
+      price: price,
       status: "A",
-      answer: "题目",
+      answer: anwser,
       username: name,
       waybillnum: waybillnum
     }, (order) => {
-      
-      wx.navigateTo({
-        url: '/pages/subsuccess/subseccess',
-      })
-      
+      wx.reLaunch({
+        url: '/pages/subsuccess/subsuccess?price=' + this.Base.options.price,
+      });
     });
   }
-  expresstosubmit(e) {
-    console.log(e);
+
+  expresstoconfirm(e) {
+    var data = e.detail.value;
+    if (data.epscity == "") {
+      this.Base.info("请选择地址");
+      return;
+    }
+    if (data.epsaddress == "") {
+      this.Base.info("请填写详细地址");
+      return;
+    }
+    if (data.epsmobile == "") {
+      this.Base.info("请填写联系方式");
+      return;
+    }
+    if (data.epsdate == "") {
+      this.Base.info("请选择日期");
+      return;
+    }
+
     var myaddress = this.Base.getMyData().myaddress;
     var city = myaddress.city;
     var district = myaddress.district;
@@ -200,8 +231,6 @@ class Content extends AppBase {
     //var country = this.Base.getMyData().country;
     var mobile = this.Base.getMyData().mobile;
     var address = this.Base.getMyData().address;
-    var price = this.Base.getMyData().price;
-    var anwser = this.Base.getMyData().anwser;
     var date = this.Base.getMyData().date;
     var that = this;
     var phoneapi = new PhoneApi();
@@ -211,40 +240,71 @@ class Content extends AppBase {
       country: district,
       mobile: mobile,
       address: address,
-      price: price,
+      price: "3050",
       status: "A",
-      answer: anwser,
+      answer: "题目",
       orderdate: date
     }, (order) => {
-      this.Base.setMyData({
-        order
+      wx.reLaunch({
+        url: '/pages/subsuccess/subsuccess',
       });
     });
+
   }
-  owncontactsubmit(e) {
-    console.log(e);
+
+  subwayconfirm(e) {
+    var data = e.detail.value;
+    if (data.subwaycity == "") {
+      this.Base.info("请选择城市");
+      return;
+    }
+    // if (data.subway == "") {
+    //   this.Base.info("请选择地铁站");
+    //   return;
+    // }
+    if (data.subwayphone == "") {
+      this.Base.info("请填写联系方式");
+      return;
+    }
+    if (data.subwaydate == "") {
+      this.Base.info("请选择日期");
+      return;
+    }
+
     var myaddress = this.Base.getMyData().myaddress;
     var city = myaddress.city;
     var mobile = this.Base.getMyData().mobile;
     var date = this.Base.getMyData().date;
-    var price = this.Base.getMyData().price;
-    var anwser = this.Base.getMyData().anwser;
     var that = this;
     var phoneapi = new PhoneApi();
     phoneapi.order({
       city: city,
       transactionmode: "地铁取货",
       mobile: mobile,
-      price: price,
+      price: "3050",
       status: "A",
-      answer: anwser,
+      answer: "题目",
       orderdate: date
     }, (order) => {
-      this.Base.setMyData({
-        order
-      });
+      wx.reLaunch({
+        url: '/pages/subsuccess/subsuccess',
+      })
     });
   }
+
+
+  bindsubmit(e) {
+    console.log(e);
+
+  }
+  expresstosubmit(e) {
+    console.log(e);
+
+  }
+  // owncontactsubmit(e) {
+  //   console.log(e);
+
+  // }
   bindDateChange(e) {
     this.setData({
       date: e.detail.value
@@ -334,7 +394,7 @@ class Content extends AppBase {
       date: e.detail.value
     })
   }
-  
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -368,5 +428,8 @@ body.bindDateChange = content.bindDateChange;
 body.expresstodate = content.expresstodate;
 body.waybillnum = content.waybillnum;
 body.subwaytradedate = content.subwaytradedate;
+body.bindtishi = content.bindtishi;
 body.confirm = content.confirm;
+body.expresstoconfirm = content.expresstoconfirm;
+body.subwayconfirm = content.subwayconfirm;
 Page(body)

@@ -122,7 +122,7 @@
     <view class='flex-row column padding-30 bg-white margin-top-10'>
     <view class='flex-row flex-center margin-bottom-10'>
       <view class='h5'>联系电话：</view>
-      <view class='h5'>17608463082</view>
+      <view class='h5'>{{orderinfo.mobile}}</view>
     </view>
 
     <view class='flex-row flex-center margin-bottom-10'>
@@ -160,14 +160,14 @@
 
     <view class='flex-1 flex-row flex-column margin-20 padding-20 ' style='border:4rpx solid #ececec'>
     <view><image class='icon-40 margin-top-20' src='{{uploadpath}}resource/{{res.iCloud}}'></image></view>
-    <view class='h5 margin-top-20'>iCloud注销</view>
-    <view class='h6 margin-top-20 margin-bottom-20' style=''>请解除iCloud账号后回收以防止影响回收价格。</view>
+    <view class='h5 margin-top-20'>手机账号注销</view>
+    <view class='h6 margin-top-20 margin-bottom-20' style=''>请解除手机账号后回收以防止影响回收价格。</view>
     </view>
 
     <view class='flex-1 flex-row flex-column margin-20 padding-20 ' style='border:4rpx solid #ececec'>
     <view><image class='icon-40 margin-top-20' src='{{uploadpath}}resource/{{res.zhengjian}}'></image></view>
     <view class='h5 margin-top-20'>携带有效证件</view>
-    <view class='h6 margin-top-20 margin-bottom-20' style=''>交易时需出示身份证，满十八周岁者方可交易。</view>
+    <view class='h6 margin-top-20 margin-bottom-20' style=''>现场交易需出示身份证，满十八周岁方可交易。</view>
     </view>
 
     </view>

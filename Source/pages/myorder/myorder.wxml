@@ -29,7 +29,7 @@
 
   <view class='border_t padding-20 flex-row flex-center'>
     <view class='flex-5'></view>
-    <navigator url='' class='h6 again padding-10 flex-1 text-center'>取消订单</navigator>
+    <view bindtap='cancelorder' class='h6 again padding-10 flex-1 text-center'>取消订单</view>
   </view>
 
 </view>
