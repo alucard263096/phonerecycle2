@@ -1,6 +1,6 @@
 <!--pages/details/details.wxml-->
 <view class='Top padding-20 flex-row flex-column'>
-  <navigator url='/pages/searchbox/searchbox' class='search flex-row flex-center padding-10 '>
+  <navigator url='/pages/searchbox/searchbox?{{options.newphone!=undefined?"&new=Y":""}}' class='search flex-row flex-center padding-10 '>
     <view class='flex-1'></view>
     <image class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
     <view class='h5 txt-gray'>搜索您要卖的品牌、机型</view>
