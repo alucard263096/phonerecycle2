@@ -1,0 +1,95 @@
+<!--pages/myorder/myorder.wxml-->
+<view class='flex-row flex-center'>
+  <view class='flex-1 text-center h5 padding-10 {{s1==1?"border_white_primary":""}}' bindtap='bindsuccess'>等待交易</view>
+  <view class='flex-1 text-center h5 padding-10 {{s2==2?"border_white_primary":""}}' bindtap='bindwait'>交易成功</view>
+  <view class='flex-1 text-center h5 padding-10 {{s3==3?"border_white_primary":""}}' bindtap='bindcancel'>交易取消</view>
+</view>
+<view class='top margin-bottom-20' wx:for='{{orderlist}}' wx:key='k' hidden='{{s1!=1}}'>
+  <!-- <view class='head'></view> -->
+  <view class='flex-row flex-center padding-10 '>
+    <view class='h6 padding-left-20'>2018-10-25</view>
+    <view class='h6 margin-left-10'>15:00:16</view>
+    <view class='flex-1 text-right h6 txt-primary padding-right-20'>待交易</view>
+  </view>
+
+  <navigator url='/pages/orderdetails/orderdetails?id={{item.id}}' class='border_t padding-20'>
+    <view class='padding-left-10 flex-row flex-center'>
+      <view class='icon-60 flex-row flex-column ' style='border:1rpx solid #ececec'>
+        <image mode="aspectFit" class='icon-50 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+      </view>
+      <view class='flex-row column padding-left-30'>
+        <view class='h5 txt-black flex-1 padding-10'>{{item.brand_model_name}}</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' style='width:80rpx;border-radius:5rpx;'>{{item.transactionmode}}</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view>
+        <view class='flex-1 h6 padding-10'>￥{{item.price}}</view>
+      </view>
+    </view>
+  </navigator>
+
+  <view class='border_t padding-20 flex-row flex-center'>
+    <view class='flex-5'></view>
+    <navigator url='' class='h6 again padding-10 flex-1 text-center'>取消订单</navigator>
+  </view>
+
+</view>
+
+<view class='top margin-bottom-20' wx:for='{{orderlistB}}' wx:key='k' hidden='{{s2!=2}}'>
+  <!-- <view class='head'></view> -->
+  <view class='flex-row flex-center padding-10 '>
+    <view class='h6 padding-left-20'>2018-10-25</view>
+    <view class='h6 margin-left-10'>15:00:16</view>
+    <view class='flex-1 text-right h6 txt-primary padding-right-20'>交易成功</view>
+  </view>
+
+  <navigator url='/pages/orderdetails/orderdetails?id={{item.id}}' class='border_t padding-20'>
+    <view class='padding-left-10 flex-row flex-center'>
+      <view class='icon-60 flex-row flex-column ' style='border:1rpx solid #ececec'>
+        <image mode="aspectFit" class='icon-50 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+      </view>
+      <view class='flex-row column padding-left-30'>
+        <view class='h5 txt-black flex-1 padding-10'>{{item.brand_model_name}}</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' style='width:80rpx;border-radius:5rpx;'>{{item.transactionmode}}</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view>
+        <view class='flex-1 h6 padding-10'>￥{{item.price}}</view>
+      </view>
+    </view>
+  </navigator>
+
+  <view class='border_t padding-20 flex-row flex-center'>
+    <view class='flex-5'></view>
+    <navigator url='/pages/problem/problem?id={{item.id}}' class='h6 again padding-10 flex-1 text-center'>重新询价</navigator>
+  </view>
+
+</view>
+
+<view class='top margin-bottom-20' wx:for='{{orderlistC}}' wx:key='k' hidden='{{s3!=3}}'>
+  <!-- <view class='head'></view> -->
+  <view class='flex-row flex-center padding-10 '>
+    <view class='h6 padding-left-20'>2018-10-25</view>
+    <view class='h6 margin-left-10'>15:00:16</view>
+    <view class='flex-1 text-right h6 txt-primary padding-right-20'>交易已取消</view>
+  </view>
+
+  <navigator url='/pages/orderdetails/orderdetails?id={{item.id}}' class='border_t padding-20'>
+    <view class='padding-left-10 flex-row flex-center'>
+      <view class='icon-60 flex-row flex-column ' style='border:1rpx solid #ececec'>
+        <image mode="aspectFit" class='icon-50 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+      </view>
+      <view class='flex-row column padding-left-30'>
+        <view class='h5 txt-black flex-1 padding-10'>{{item.brand_model_name}}</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' style='width:80rpx;border-radius:5rpx;'>{{item.transactionmode}}</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view>
+        <view class='flex-1 h6 padding-10'>￥{{item.price}}</view>
+      </view>
+    </view>
+  </navigator>
+
+  <view class='border_t padding-20 flex-row flex-center'>
+    <view class='flex-5'></view>
+    <navigator url='/pages/problem/problem?id={{item.id}}' class='h6 again padding-10 flex-1 text-center'>重新询价</navigator>
+  </view>
+
+</view>

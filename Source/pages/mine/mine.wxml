@@ -1,0 +1,48 @@
+<!--pages/mine/mine.wxml-->
+<view class='flex-row flex-center padding-40 bg-primary'>
+<view><image class='icon-50 radius-50' src='{{UserInfo.avatarUrl}}'></image></view>
+<view class='flex-1 flex-row column padding-left-30'>
+<view class='flex-row flex-center'>
+
+<view></view>
+</view>
+<view class='txt-white margin-left-5'>{{UserInfo.nickName}}</view>
+</view>
+<navigator url='/pages/myaccount/myaccount'><image class='icon' src='{{uploadpath}}resource/{{res.setup_icon}}'></image></navigator>
+</view>
+
+<view class='flex-row column '>
+
+<navigator url='/pages/myorder/myorder' class='flex-row flex-center padding-40 border_bottom'>
+<image class='icon-30' src='{{uploadpath}}resource/{{res.myorder_icon}}'></image>
+<view class='flex-1 h4-5 padding-left-20'>我的订单</view>
+<image class='icon-15' src='{{uploadpath}}resource/{{res.right_icon}}'></image>
+</navigator>
+
+<navigator url='/pages/helpcenter/helpcenter' class='flex-row flex-center padding-40 border_bottom'>
+<image class='icon-30' src='{{uploadpath}}resource/{{res.helpcenter_icon}}'></image>
+<view class='flex-1 h4-5 padding-left-20'>帮助中心</view>
+<image class='icon-15' src='{{uploadpath}}resource/{{res.right_icon}}'></image>
+</navigator>
+
+<navigator url='/pages/aboutus/aboutus' class='flex-row flex-center padding-40 border_bottom'>
+<image class='icon-30' src='{{uploadpath}}resource/{{res.zhijian}}'></image>
+<view class='flex-1 h4-5 padding-left-20'>质检说明</view>
+<image class='icon-15' src='{{uploadpath}}resource/{{res.right_icon}}'></image>
+</navigator>
+
+<navigator url='/pages/lianxikefu/lianxikefu' class='flex-row flex-center padding-40 border_bottom'>
+<image class='icon-30' src='{{uploadpath}}resource/{{res.CCS_icon}}'></image>
+<view class='flex-1 h4-5 padding-left-20'>联系客服</view>
+<image class='icon-15' src='{{uploadpath}}resource/{{res.right_icon}}'></image>
+</navigator>
+
+<navigator url='/pages/aboutus/aboutus' class='flex-row flex-center padding-40 border_bottom'>
+<image class='icon-30' src='{{uploadpath}}resource/{{res.aboutus_icon}}'></image>
+<view class='flex-1 h4-5 padding-left-20'>关于我们</view>
+<image class='icon-15' src='{{uploadpath}}resource/{{res.right_icon}}'></image>
+</navigator>
+
+
+
+</view>

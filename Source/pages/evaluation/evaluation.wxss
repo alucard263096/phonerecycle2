@@ -1,0 +1,65 @@
+/* pages/evaluation/evaluation.wxss */
+Page{
+padding-bottom: 150rpx;
+border-top:1rpx solid #ebebeb;
+}
+.Top{
+  /* border-bottom: 1rpx solid #ebebeb; */
+  height: 160rpx;
+}
+.font-120{
+  font-size: 100rpx !important;
+}
+.again{
+  background-color: #2699EC;
+  color: white;
+  border-radius: 50rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  width: 150rpx;
+}
+.mid{
+  height: 10rpx;
+  background: #ebebeb;
+}
+.phcolor{
+    color: black;
+}
+.Btm{
+  margin:10rpx 40rpx 0rpx 40rpx;
+  padding-bottom: 40rpx;
+}
+.left{
+  border: 1rpx solid #2699EC;
+  border-bottom-left-radius: 10rpx;
+  border-top-left-radius: 10rpx;
+}
+.right{
+  border: 1rpx solid #2699EC;
+  border-bottom-right-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+.head{
+  margin:10rpx 40rpx 0rpx 40rpx;
+  padding-bottom: 20rpx;
+  padding-top: 10rpx;
+  border-top:2rpx solid #dfdcdc;
+}
+.finally{
+  margin:40rpx 40rpx 0rpx 40rpx;
+  padding-bottom: 30rpx;
+  border-bottom:2rpx solid #dfdcdc;
+}
+.bg{
+  background: #2699EC;
+  position: fixed;
+  z-index: 1;
+  bottom:0px;
+  width: 100%;
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}

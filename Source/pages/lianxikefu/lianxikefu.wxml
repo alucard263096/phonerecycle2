@@ -1,0 +1,17 @@
+<!--pages/lianxikefu/lianxikefu.wxml-->
+<!-- <view>
+<image class='icon-30' src='{{uploadpath}}inst/{{instinfo.kefuerweima}}'></image>
+</view> -->
+<view class='flex-rwo top column padding-left-40 padding-right-40 bg-white'>
+
+<view class='flex-row  flex-center bottom padding-10 margin-top-10'>
+<view class='flex-1 h4-5 padding-bottom-10'>客服热线</view>
+<view class='flex-3  padding-left-10 padding-bottom-10' bindtap='phoneCall' id="{{instinfo.customerservicemobile}}">{{instinfo.customerservicemobile}}</view>
+</view>
+
+<view class='flex-row flex-center  padding-10'>
+<view class='flex-1 h4-5'>客服二维码</view>
+<view class='flex-3  padding-left-10'><image class='icon-50 ' bindtap='viewPhoto' id='{{uploadpath}}inst/{{instinfo.kefuerweima}}' src='{{uploadpath}}inst/{{instinfo.kefuerweima}}'></image></view>
+</view>
+</view>
+

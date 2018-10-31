@@ -1,0 +1,7 @@
+<!--pages/jixingchengse/jixingchengse.wxml-->
+<view class='margin-40 bg-white border-radius' >
+<view class='txt-primary padding-30 h5' style='border-bottom:1rpx dashed #e5e4e7'>机型成色</view>
+<view wx:for='{{modelcondition}}' hidden='{{item.status!="A"}}' wx:key='k' class='margin-20 padding-10' >
+<view class='h5'>{{item.model_condition}}</view>
+</view>
+</view>

@@ -1,0 +1,27 @@
+<!--pages/problem/problem.wxml-->
+<view class='top flex-row flex-center'>
+  <view class='h5 flex-4 '>选择结果和实际情况相符，将以最快速度收款</view>
+  <view class='flex-1 flex-row flex-center'>
+    <view class='h4 '>{{da}}</view>
+    <view class='h6 padding-left-10 padding-top-10'>/</view>
+    <view class='h6 padding-left-10 padding-top-10' style='color:gray'>{{timu.length}}</view>
+  </view>
+</view>
+
+<view class=" flex-row column " wx:for="{{timu}}" wx:key="k" wx:for-index="idx" hidden='{{timu[idx-1].xuanle==""}}'>
+
+  <view class='flex-row flex-center ' style='margin-left:20rpx;'>
+    <view>{{idx+1}}{{xuanle}}</view>
+    <view class='margin-left-10 '>{{item.name}}</view>
+  </view>
+
+  <view class='prb_mid margin-20   flex-row column'>
+    <radio-group class="radio-group"  id="{{idx}}" bindchange="bindradio">
+     <label class=" flex-row flex-center margin-top-10" wx:for="{{item.options}}" wx:key="k">
+      <radio class='radio' value="{{item}}" color='#2699EC'/><view>{{item}}</view>
+     </label>
+    </radio-group>
+  </view>
+</view>
+
+<navigator url='/pages/evaluation/evaluation?id={{options.id}}' hidden='{{da<timu.length}}'  class='height-100 bg  flex-row flex-column' style='line-height:100rpx'>查看定价</navigator>

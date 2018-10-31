@@ -1,0 +1,15 @@
+<!--pages/myaccount/myaccount.wxml-->
+<view class='flex-rwo top column padding-left-40 padding-right-40 bg-white'>
+<view class='flex-row flex-center bottom padding-20'>
+<view class='flex-1 h4-5'>头像</view>
+<view class='flex-3  padding-left-10'><image class='icon-40 radius-50' src='{{UserInfo.avatarUrl}}'></image></view>
+</view>
+
+<view class='flex-row  flex-center padding-20 margin-top-10'>
+<view class='flex-1 h4-5 padding-bottom-10'>手机号</view>
+
+<view class='flex-3  padding-left-10 padding-bottom-10 flex-row flex-center'>
+<input class='h5 txt-black' placeholder='点击绑定手机' disabled='false' bindgetphonenumber='getPhoneNo' open-type='getPhoneNumber' value='{{mobile}}' ></input>
+<button class='h6' style='width:220rpx;' size='mini' bindgetphonenumber='getPhoneNo' open-type='getPhoneNumber'>获取手机</button></view>
+</view>
+</view>

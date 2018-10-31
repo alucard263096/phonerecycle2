@@ -1,0 +1,19 @@
+/* pages/orderdetails/orderdetails.wxss */
+Page{
+  background: #f8f8f8;
+  padding-bottom: 150rpx;
+}
+.border_b{
+  border-bottom: 2rpx solid #ececec;
+}
+.border_t{
+  border-top: 2rpx solid #dfdede;
+  position: fixed;
+  bottom:0px;
+  z-index: 1;
+  width: 100%;
+}
+.again{
+  border:1rpx solid #dfdede;
+  border-radius: 5rpx;
+}

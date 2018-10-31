@@ -1,54 +1,118 @@
+<view class='Top padding-20 flex-row flex-column'>
+  <navigator url='/pages/searchbox/searchbox' class='search flex-row flex-center padding-10 '>
+    <view class='flex-1'></view>
+    <image class='search_icon' src='{{uploadpath}}resource/{{res.search_icon}}'></image>
+    <view class='h5 txt-gray'>搜索您要卖的品牌、机型</view>
+    <view class='flex-1'></view>
+  </navigator>
+</view>
+
 <view>
-  <swiper autoplay='true' indicator-dots='true' style='width:750rpx;height:280rpx;' circular>
-    <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+  <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='width:750rpx;height:350rpx;'>
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k" catchtouchmove="stopTouchMove">
       <view>
-        <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:280rpx;' mode="aspectFill"></image>
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:350rpx;' mode="aspectFill"></image>
       </view>
     </swiper-item>
   </swiper>
 </view>
 
+<view class='Mid flex-row flex-center padding-20'>
+  <navigator  class='mid1 flex-1 flex-row padding-15 margin-right-15'>
+    <navigator url='/pages/details/details?newphone=Y'><image class='icon-40 ' src='{{uploadpath}}resource/{{res.xinjihuishou}}'></image></navigator>
+    <navigator url='/pages/details/details?newphone=Y' class='h4 flex-1'>
+      <view class='txt-white'>新机回收</view>
+      <view class=' h6 txt-white'>最潮最新的手机</view>
+    </navigator>
+     <view class='' bindtap='bindtipsnew'><image class='icon-17' src='{{uploadpath}}resource/{{res.wen_icon}}'></image></view>
+  </navigator>
 
-<view>
-  <scroll-view scroll-x="{{true}}" style='width:750rpx;height:84rpx;'>
-    <view class='flex-row' style='width:{{catlist.length*250}}rpx'>
-      <view class='catitem' wx:for="{{catlist}}" wx:key="k" wx:for-index="idx" id="{{idx}}" bindtap='changeTab'>
-        <view class='flex-row flex-center'>
-          <view class='flex-1'></view>
-          <view class='m {{idx==currenttab?"ma":""}} h5'>{{item.name}}</view>
-          <view class='flex-1'></view>
+  <navigator  class='mid2 flex-1 flex-row padding-15 margin-right-15'>
+    <navigator url='/pages/details/details'><image class='icon-40 ' src='{{uploadpath}}resource/{{res.jiujihuishou}}'></image></navigator>
+    <navigator url='/pages/details/details' class='h4 flex-1'>
+      <view class='txt-white'>旧机回收</view>
+      <view class=' h6 txt-white'>被抛弃遗忘的手机</view>
+    </navigator>
+     <view class='' bindtap='bindtipsold'><image class='icon-17' src='{{uploadpath}}resource/{{res.wen_icon}}'></image></view>
+  </navigator>
+
+</view>
+
+<navigator url='/pages/fastrecovery/fastrecovery' class='evaluation flex-row flex-center padding-20'>
+  <view class='flex-1 text-right txt-white padding-right-15'>同行回收</view>
+  <view class='flex-1 text-left txt-white padding-left-15'>一键下单</view>
+</navigator>
+
+<view class='Under'>
+  <view class='txt-bold margin-left-20'>四步变现</view>
+  <view class='padding-20 flex-row flex-center'>
+
+    <view class='flex-1 flex-row flex-column'>
+      <image class='icon-40' src='{{uploadpath}}resource/{{res.jiujigujia}}'></image>
+      <view class='h6 '>旧机估价</view>
+    </view>
+
+    <view class=' padding-20'>
+      <image class='icon-10' src='{{uploadpath}}resource/{{res.you}}'></image>
+    </view>
+    
+    <view  class='flex-1 flex-row flex-column'>
+      <image class='icon-40' src='{{uploadpath}}resource/{{res.zaixianxiadan}}'></image>
+      <view class='h6 '>在线下单</view>
+    </view>
+
+    <view class=' padding-20'>
+      <image class='icon-10' src='{{uploadpath}}resource/{{res.you}}'></image>
+    </view>
+
+    <view class='flex-1 flex-row flex-column'>
+      <image class='icon-40' src='{{uploadpath}}resource/{{res.zhuanyezhijian}}'></image>
+      <view class='h6 '>专业质检</view>
+    </view>
+
+    <view class=' padding-20'>
+      <image class='icon-10' src='{{uploadpath}}resource/{{res.you}}'></image>
+    </view>
+
+    <view class='flex-1 flex-row flex-column'>
+      <image class='icon-40' src='{{uploadpath}}resource/{{res.kuaisushoukuan}}'></image>
+      <view class='h6 '>快速收款</view>
+    </view>
+
+  </view>
+</view>
+
+<view class='margin-20'>
+  <swiper indicator-dots='false' autoplay='true' duration='1000' circular='true' style='width:750rpx;height:120rpx;'>
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k">
+      <view>
+        <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:120rpx;' mode="aspectFill"></image>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class='flex-row flex-center '>
+  <view class=' flex-4 txt-bold margin-left-20 '>热门回收机型</view>
+  <navigator url='/pages/details/details' class='flex-1  flex-row flex-center' style='padding-left:230rpx;'>
+    <view class='h6'>更多</view>
+    <image class='icon-10 ' src='{{uploadpath}}resource/{{res.more}}'></image>
+  </navigator>
+</view>
+
+<navigator url='/pages/details/details' class='flex-row flex-wrap ' style='margin-top:10rpx;'>
+  <view class=' phone   flex-row flex-center ma-{{idx%2}}' style='width:345rpx;height:210rpx;' wx:for="{{tuijian}}" wx:key="k" wx:for-index="idx">
+    <view class='padding-10'>
+      <view class='flex-row flex-center'>
+        <view class=''><image mode="aspectFit" class='icon' src='{{uploadpath}}tuijian/{{item.phone_img}}'></image></view>
+        <view class=' flex-row column margin-left-20'>
+          <view class='h5' style=''>{{item.name}}</view>
+          <view class='h6 margin-top-5 txt-gray'>最高回收价</view>
+          <view class='h5 margin-top-5 txt-red'>￥{{item.price}}</view>
         </view>
       </view>
     </view>
-  </scroll-view>
-</view>
-<swiper indicator-dots="{{false}}" class='bottomtabs ' current='{{currenttab}}' bindchange="changeCurrentTab" class="maintab">
-  <swiper-item wx:for="{{catlist}}" wx:key="k" wx:for-index="idx">
-    <scroll-view scroll-y style='height:100%;'>
-      <view class='padding-20 '>
-        <view class='flex-row flex-wrap'>
-          <view class='lock {{(company.price==0||company.unlock!="N")?"unlock":""}} {{idxx%2==0?"c-right":""}}'  wx:for="{{item.companylist}}" wx:key="k2" wx:for-index="idxx" wx:for-item="company"  bindtap='gotoCompany' id="{{company.id}}" >
-            <view class='padding-20'>
-              <view class='lockimg' wx:if="{{company.price>0}}">
-                <image class='icon' src='{{uploadpath}}resource/{{res.unlock}}' wx:if="{{company.unlock!='N'}}"></image>
-                <image class='icon' src='{{uploadpath}}resource/{{res.lock}}' wx:if="{{company.unlock=='N'}}"></image>
-              </view>
-              <view class='h6 text-center'>
-                {{company.name}}（第{{company.version}}版）
-              </view>
-              <view class='h6 text-center margin-top-5' style='height:68rpx;'>
-                {{company.joinpeople}}人参与，平均估值{{company.avgval}}亿
-              </view>
-              <view class='h6 text-center' style='color:#ff9800' wx:if="{{company.lasttestversion>-1 && company.lasttestversion!=company.version}}">
-                最近更新：{{company.changed_date_formatting}}
-              </view>
-              <view class='h6 text-center' wx:else>
-                最近更新：{{company.changed_date_formatting}}
-              </view>
-            </view>
-          </view>
-        </view>
-      </view>
-    </scroll-view>
-  </swiper-item>
-</swiper>
+  </view>
+</navigator>
+
+<view class='height-70 '></view>

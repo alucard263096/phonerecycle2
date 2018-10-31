@@ -1,0 +1,33 @@
+/* pages/myorder/myorder.wxss */
+Page{
+  background-color: #f3f2f8;
+}
+.top{
+  /* border-top:20rpx solid #ececec; */
+  background: white;
+}
+/* .head{
+  height: 20rpx;
+  background: white;
+  position: fixed;
+  top:0px;
+  z-index: 1;
+  width: 100%;
+} */
+.border_t{
+  border-top: 2rpx solid #ececec;
+}
+.again{
+  border:1rpx solid #ececec;
+  border-radius: 5rpx;
+}
+.showcolor{
+  background: #2699EC;
+  color: white;
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}

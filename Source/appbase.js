@@ -12,7 +12,7 @@ export class AppBase {
   static QQMAPKEY ="IDVBZ-TSAKD-TXG43-H442I-74KVK-6LFF5";
   static UserInfo = {};
   static InstInfo = {};
-  unicode = "zwgz";
+  unicode = "CKHS";
   needauth = true;
   pagetitle = null;
   app = null;
@@ -288,13 +288,15 @@ export class AppBase {
     var that = this;
     console.log(e);
     var api = new WechatApi();
+    var data = this.Base.getMyData();
+    console.log(data);
+
+    e.detail.session_key = AppBase.session_key;
+    e.detail.openid = AppBase.openid;
+    console.log(e.detail);
     api.decrypteddata(e.detail, (ret) => {
-      console.log("decrypteddata");
       console.log(ret);
-      var memberapi = new MemberApi();
-      memberapi.bindmobile({ mobile: ret.return.phoneNumber }, (aa) => {
-        that.phonenoCallback(ret.return.phoneNumber, e)
-      });
+      that.phonenoCallback(ret.return.phoneNumber, e);
     });
   }
   phonenoCallback(phoneno, e) {

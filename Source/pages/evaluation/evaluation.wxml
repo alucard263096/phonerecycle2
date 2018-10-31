@@ -1,0 +1,162 @@
+<!--pages/evaluation/evaluation.wxml-->
+
+<view class='flex-row column padding-30'>
+  <view class='h4 txt-black margin-left-10'>{{modelinfo.model_name}}</view>
+  <view class='Top  flex-row flex-center'>
+    <view class='flex-3 flex-row '>
+      <view class='txt-bold font-120 txt-black'>3050</view>
+      <view class='txt-bold padding-top-70 margin-left-10 txt-black'>元</view>
+    </view>
+    <navigator class='flex-1' bindtap='bindelt'>
+      <view class=' text-center again h6'>重新估价</view>
+    </navigator>
+  </view>
+</view>
+<view class='mid'>
+</view>
+<view class='recovery margin-40  flex-row flex-center'>
+  <view class='flex-1 padding-10 text-center left {{show==true?"white_primary":""}}' bindtap='selectleft'>自行邮寄</view>
+  <view class='flex-1 padding-10 text-center right {{hide==true?"white_primary":""}}' bindtap='selectright'>上门回收</view>
+</view>
+
+<form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
+<view class='{{show==true?"":"hide"}}'>
+
+  <view class='Btm flex-row flex-center'>
+    <navigator class='txt-black flex-1'>寄件人信息：</navigator>
+  </view>
+
+  <view class='{{s1==1?"":"hide"}}'>
+    <view class='head flex-row flex-center '>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' name='city_name' bindinput='bindcity' placeholder='请输入城市名'></input>
+      <!-- <navigator class='txt-blue margin-top-10 h6'>更改</navigator> -->
+    </view>
+    <!-- <view class='head flex-row flex-center' bindtap='addAddress'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' bindinput='bindcountry' disabled='true' placeholder='请点击选择地址' value='{{country}}'></input>
+      <navigator class='txt-blue margin-top-10 h6'>更改</navigator>
+    </view> -->
+    <view class='head flex-row flex-center'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' name='address_name' bindinput='bindaddress' maxlength='30' placeholder='请输入详细楼栋和门牌号'></input>
+    </view>
+    <view class='head flex-row flex-center'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' name='username' bindinput='bindname' placeholder='请填写寄件人真实姓名'></input>
+      <!-- <navigator bindtap='binddobut'>
+        <image class='margin-top-10 icon-15' src='{{uploadpath}}resource/{{res.doubt}}'></image>
+      </navigator>-->
+    </view>
+    <view class='head flex-row flex-center'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' name='userphone' type='number' bindinput='bindmobile' maxlength='30' placeholder='请输入寄件人联系电话'></input>
+    </view>
+    <view class='head flex-row flex-center'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' name='couriernumber' bindinput='waybillnum' maxlength='30' placeholder='请输入快递单号'></input>
+    </view>
+  </view>
+  <view class='mid'>
+  </view>
+
+  <view class='txt-primary h5  padding-40 flex-row column'>
+    <view class='flex-1 txt-black flex-row flex-center'>
+      <view class='flex-5'>收件人信息：</view>
+      <view class=' txt-primary h6' bindtap='binddobut'>复制信息</view>
+    </view>
+    <view class='h5 margin-top-10'>姓名：{{instinfo.tb_shoujian}}</view>
+    <view class='h5 margin-top-10'>电话：{{instinfo.shoujian_phone}}</view>
+    <view class='h5 margin-top-10 flex-row '>
+      <view class='h5 '>地址：</view>
+      <view class='h5 flex-5'>{{instinfo.shoujian_address}}</view>
+    </view>
+
+  </view>
+</view>
+<button  form-type='submit' class='height-100 bg  flex-row flex-column {{show==true?"":"hide"}}' bindtap='bindsubmit' style='line-height:100rpx'>立即回收</button>
+</form>
+
+
+
+
+
+
+
+<view class='{{hide==true?"":"hide"}}'>
+  
+  <view bindtap='bindtradingto' class='Btm flex-row flex-center'>
+    <image class='icon-15 {{s3==3?"":"hide"}}' src='{{uploadpath}}resource/{{res.Y_icon}}'></image>
+    <image class='icon-15 {{s4==3?"":"hide"}}' src='{{uploadpath}}resource/{{res.quan}}'></image>
+    <view class='flex-1 txt-bold h5 padding-left-10 txt-black'>上门交易</view>
+  </view>
+
+  <view class='{{s3==3?"":"hide"}}'>
+    <view class='head flex-row flex-center'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' bindinput='expresstocity' placeholder='请输入城市'></input>
+
+    </view>
+    <!-- <view class='head flex-row flex-center' bindtap='addaddressexpressto'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' bindinput='expresstocountry' placeholder='请点击选择地址' disabled='true' maxlength='30' value='{{country}}'></input>
+      <navigator class='txt-blue margin-top-10 h6'>更改</navigator>
+    </view> -->
+    <view class='head flex-row flex-center'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' bindinput='expressto' maxlength='30' placeholder='请输入详细楼栋和门牌号'></input>
+    </view>
+    <view class='head flex-row flex-center'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' type='number' bindinput='expresstomobile' maxlength='30' placeholder='请输入电话号码'></input>
+    </view>
+    <view class='head  '>
+      <picker mode='date' bindchange="bindDateChange" start="{{today}}">
+        <view class='flex-row flex-center'>
+          <view class='flex-1 margin-top-10 h5 padding-left-10 txt-black flex-row column'>
+            <view class='h5'>预约时间:</view>
+            <input disabled='true' class='h5' placeholder='请选择日期' bindinput='expresstodate' value='{{date}}'></input>
+          </view>
+          <navigator class=' txt-blue margin-top-10 h6'>更改</navigator>
+        </view>
+      </picker>
+    </view>
+    <view class='mid'>
+    </view>
+  </view>
+
+
+  <view bindtap='bindsubwaytrading' class='Btm flex-row flex-center'>
+    <image class='icon-15 {{s4==3?"":"hide"}}' src='{{uploadpath}}resource/{{res.Y_icon}}'></image>
+    <image class='icon-15 {{s3==3?"":"hide"}}' src='{{uploadpath}}resource/{{res.quan}}'></image>
+    <view class='flex-1 txt-bold h5 padding-left-10 txt-black'>地铁站交易</view>
+  </view>
+
+  <view class='{{s4==3?"":"hide"}}'>
+    <view class='head flex-row flex-center'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' placeholder='请点击选择城市' disabled='true' value='{{myaddress.city}}'></input>
+      <navigator class='txt-blue margin-top-10 h6'>更改</navigator>
+    </view>
+    <view class='head flex-row flex-center'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' disabled='' maxlength='30' placeholder='请选择地铁站'></input>
+    </view>
+    <view class='head flex-row flex-center'>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' type='number' bindinput='expresstomobile' maxlength='30' placeholder='请输入电话号码'></input>
+    </view>
+    <view class='head  '>
+      <picker mode='date' bindchange="bindDateChange" start='{{today}}'>
+        <view class='flex-row flex-center'>
+
+          <view class='flex-1 margin-top-10 h5 padding-left-10 txt-black flex-row column'>
+            <view class='h5'>预约时间:</view>
+            <input disabled='true' class='h5' bindinput='subwaytradedate' placeholder='请选择日期' value='{{date}}'></input>
+          </view>
+
+          <navigator class=' txt-blue margin-top-10 h6'>更改</navigator>
+
+        </view>
+
+      </picker>
+
+    </view>
+
+  </view>
+
+</view>
+
+
+
+
+<navigator url='/pages/subsuccess/subsuccess' class='height-100 bg  flex-row flex-column {{hide==true&&s3==3?"":"hide"}}' bindtap='expresstosubmit' style='line-height:100rpx'>立即回收</navigator>
+
+<navigator url='/pages/subsuccess/subsuccess' class='height-100 bg  flex-row flex-column {{hide==true&&s4==3?"":"hide"}}' bindtap='owncontactsubmit' style='line-height:100rpx'>立即回收</navigator>

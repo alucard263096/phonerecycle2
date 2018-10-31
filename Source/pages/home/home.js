@@ -2,6 +2,7 @@
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api";
+import { PhoneApi } from "../../apis/phone.api";
 
 class Content extends AppBase {
   constructor() {
@@ -15,22 +16,37 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that=this;
-
     var instapi = new InstApi();
     instapi.indexbanner({ position:"home" }, (indexbanner)=>{
       this.Base.setMyData({ indexbanner });
     });
-
+    var phoneapi = new PhoneApi();
+    phoneapi.tuijian("id", (tuijian) => {
+      this.Base.setMyData({ tuijian });
+    });
   }
-
-  changeCurrentTab(e) {
-    console.log(e);
-    this.Base.setMyData({ currenttab: e.detail.current });
+  stopTouchMove() {
+  return false;
+}
+  bindtipsnew(e) {
+    console.log(e)
+      wx.showModal({
+        content: '新机说明：未激活未使用且带有全套包装并且包装未拆封的手机（部分品牌可以接受包装拆封，但全套包装要新，保存完整）',
+        icon: "none",
+        duration: 2000,
+        showCancel: false,
+        confirmColor: "#2699EC"
+      });
   }
-
-  changeTab(e) {
-    console.log(e);
-    this.Base.setMyData({ currenttab: e.currentTarget.id });
+  bindtipsold(e) {
+    console.log(e)
+    wx.showModal({
+      content: '旧机说明：可再循环利用 可再次回收',
+      icon: "none",
+      duration: 2000,
+      showCancel: false,
+      confirmColor: "#2699EC"
+    });
   }
 } 
 var markers=[];
@@ -39,8 +55,7 @@ var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad; 
 body.onMyShow = content.onMyShow;
-body.changeCurrentTab = content.changeCurrentTab; 
-body.changeTab = content.changeTab;
-body.gotoCompany = content.gotoCompany;
-
+body.stopTouchMove = content.stopTouchMove; 
+body.bindtipsnew = content.bindtipsnew;
+body.bindtipsold = content.bindtipsold;
 Page(body)

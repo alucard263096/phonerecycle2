@@ -1,0 +1,198 @@
+<!--pages/orderdetails/orderdetails.wxml-->
+
+<view class='' hidden='{{orderinfo.status!="C"}}'>
+  <view class='bg-white margin-top-20 flex-row flex-column padding-40'>
+    <view>
+      <image class='icon-40' src='{{uploadpath}}resource/{{res.jiaoyiquxiao}}'></image>
+    </view>
+    <view class='txt-black txt-bold margin-top-10'>交易已取消</view>
+  </view>
+
+  <view class='bg-white margin-top-20'>
+    <view class='txt-bold txt-black h5 padding-40' style='border-bottom:1rpx solid #ececec'>商品信息</view>
+    <view class='padding-20 border_b'>
+      <view class=' padding-left-10 flex-row flex-center'>
+        <view class='icon-60 flex-row flex-column ' style='border:1rpx solid #ececec'>
+          <image mode="aspectFit" class='icon-50 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+        </view>
+        <view class='flex-row column padding-left-30'>
+          <view class='h5 txt-black flex-1 padding-10'>{{orderinfo.order_brand}}{{orderinfo.order_model}}</view>
+
+          <view class='flex-1 h6 txt-primary padding-10'>查看详情</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center padding-30'>
+      <view class='flex-4 txt-black h5'>预估回收价</view>
+      <view class='flex-1 txt-red'>￥{{orderinfo.price}}</view>
+    </view>
+
+  </view>
+
+  <view class='flex-row column padding-30 bg-white margin-top-20'>
+    <view class='flex-row flex-center margin-bottom-20'>
+      <view class='h5'>订单编号：</view>
+      <view class='h5'>2018102545719015003</view>
+    </view>
+
+    <view class='flex-row flex-center margin-bottom-20'>
+      <view class='h5'>创建时间：</view>
+      <view class='h5'>2018-10-25 15:00:16</view>
+    </view>
+
+    <view class='flex-row flex-center margin-bottom-20'>
+      <view class='h5'>收款方式：</view>
+      <view class='h5'>微信</view>
+    </view>
+
+  </view>
+
+  <view class='border_t padding-20 flex-row bg-white'>
+    <view class='flex-5'></view>
+    <navigator url='/pages/problem/problem' class='flex-1 h6 again margin-right-40 padding-10 text-center'>重新询价</navigator>
+
+  </view>
+</view>
+
+<view class='' hidden='{{orderinfo.status!="B"}}'>
+  <view class='bg-white margin-top-20 flex-row flex-column padding-40'>
+  <view>
+    <image class='icon-40' src='{{uploadpath}}resource/{{res.jiaoyichenggong}}'></image>
+  </view>
+  <view class='txt-black txt-bold margin-top-10'>交易成功</view>
+ </view>
+
+  <view class='bg-white margin-top-20'>
+    <view class='txt-bold txt-black h5 padding-40' style='border-bottom:1rpx solid #ececec'>商品信息</view>
+    <view class='padding-20 border_b'>
+      <view class=' padding-left-10 flex-row flex-center'>
+        <view class='icon-60 flex-row flex-column ' style='border:1rpx solid #ececec'>
+          <image mode="aspectFit" class='icon-50 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+        </view>
+        <view class='flex-row column padding-left-30'>
+          <view class='h5 txt-black flex-1 padding-10'>{{orderinfo.order_brand}}{{orderinfo.order_model}}</view>
+
+          <view class='flex-1 h6 txt-primary padding-10'>查看详情</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center padding-30'>
+      <view class='flex-4 txt-black h5'>预估回收价</view>
+      <view class='flex-1 txt-red'>￥{{orderinfo.price}}</view>
+    </view>
+
+  </view>
+
+  <view class='flex-row column padding-30 bg-white margin-top-20'>
+    <view class='flex-row flex-center margin-bottom-20'>
+      <view class='h5'>订单编号：</view>
+      <view class='h5'>2018102545719015003</view>
+    </view>
+
+    <view class='flex-row flex-center margin-bottom-20'>
+      <view class='h5'>创建时间：</view>
+      <view class='h5'>2018-10-25 15:00:16</view>
+    </view>
+
+    <view class='flex-row flex-center margin-bottom-20'>
+      <view class='h5'>收款方式：</view>
+      <view class='h5'>微信</view>
+    </view>
+
+  </view>
+
+  <view class='border_t padding-20 flex-row bg-white'>
+    <view class='flex-5'></view>
+    <navigator url='/pages/problem/problem' class='flex-1 h6 again margin-right-40 padding-10 text-center'>重新询价</navigator>
+  </view>
+</view>
+
+<view class='' hidden='{{orderinfo.status!="A"}}'>
+  <view class='bg-white margin-top-20 flex-row flex-column padding-40'>
+  <view>
+    <image class='icon-40' src='{{uploadpath}}resource/{{res.wait}}'></image>
+  </view>
+  <view class='txt-black txt-bold margin-top-10'>等待交易</view>
+ </view>
+
+  <view class='bg-white margin-top-20'>
+    <view class='txt-bold txt-black h5 padding-40' style='border-bottom:1rpx solid #ececec'>联系信息</view>
+    <view class='flex-row column padding-30 bg-white margin-top-10'>
+    <view class='flex-row flex-center margin-bottom-10'>
+      <view class='h5'>联系电话：</view>
+      <view class='h5'>17608463082</view>
+    </view>
+
+    <view class='flex-row flex-center margin-bottom-10'>
+      <view class='h5'>联系地址：</view>
+      <view class='h5'>{{orderinfo.city}}{{orderinfo.address}}</view>
+    </view>
+
+  </view>
+  </view>
+
+  <view class='bg-white margin-top-20'>
+    <view class='txt-bold txt-black h5 padding-40' style='border-bottom:1rpx solid #ececec'>商品信息</view>
+    <view class='padding-20 border_b'>
+      <view class=' padding-left-10 flex-row flex-center'>
+        <view class='icon-60 flex-row flex-column ' style='border:1rpx solid #ececec'>
+          <image mode="aspectFit" class='icon-50 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+        </view>
+        <view class='flex-row column padding-left-30'>
+          <view class='h5 txt-black flex-1 padding-10'>{{orderinfo.order_brand}}{{orderinfo.order_model}}</view>
+          <view class='flex-1 h6 txt-primary padding-10'>查看详情</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='flex-row flex-center padding-30'>
+      <view class='flex-4 txt-black h5'>预估回收价</view>
+      <view class='flex-1 txt-red'>￥{{orderinfo.price}}</view>
+    </view>
+
+  </view>
+
+  <view class='bg-white margin-top-20'>
+    <view class='txt-bold txt-black h5 padding-40' >注意事项</view>
+    <view class='flex-row flex-center padding-20'>
+
+    <view class='flex-1 flex-row flex-column margin-20 padding-20 ' style='border:4rpx solid #ececec'>
+    <view><image class='icon-40 margin-top-20' src='{{uploadpath}}resource/{{res.iCloud}}'></image></view>
+    <view class='h5 margin-top-20'>iCloud注销</view>
+    <view class='h6 margin-top-20 margin-bottom-20' style=''>请解除iCloud账号后回收以防止影响回收价格。</view>
+    </view>
+
+    <view class='flex-1 flex-row flex-column margin-20 padding-20 ' style='border:4rpx solid #ececec'>
+    <view><image class='icon-40 margin-top-20' src='{{uploadpath}}resource/{{res.zhengjian}}'></image></view>
+    <view class='h5 margin-top-20'>携带有效证件</view>
+    <view class='h6 margin-top-20 margin-bottom-20' style=''>交易时需出示身份证，满十八周岁者方可交易。</view>
+    </view>
+
+    </view>
+  </view>
+
+  <view class='flex-row column padding-30 bg-white margin-top-20'>
+    <view class='flex-row flex-center margin-bottom-20'>
+      <view class='h5'>订单编号：</view>
+      <view class='h5 txt-black'>2018102545719015003</view>
+    </view>
+
+    <view class='flex-row flex-center margin-bottom-20'>
+      <view class='h5'>创建时间：</view>
+      <view class='h5 txt-black'>2018-10-25 15:00:16</view>
+    </view>
+
+    <view class='flex-row flex-center margin-bottom-20'>
+      <view class='h5'>收款方式：</view>
+      <view class='h5 txt-black'>微信</view>
+    </view>
+
+  </view>
+
+  <view class='border_t padding-20 flex-row bg-white'>
+    <view class='flex-5'></view>
+    <navigator url='' class='flex-1 h6 again margin-right-40 padding-10 text-center'>取消订单</navigator>
+  </view>
+</view>

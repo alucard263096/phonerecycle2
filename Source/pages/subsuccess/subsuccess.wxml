@@ -1,0 +1,52 @@
+<!--pages/subsuccess/subsuccess.wxml-->
+<view class='flex-row flex-column Top'>
+  <view class='margin-top'>
+    <image class='icon-75' src='{{uploadpath}}resource/{{res.Y_icon}}'></image>
+  </view>
+  <view class=' flex-row flex-center margin-top'>
+    <view class='txt-black'>订单提交成功</view>
+    <view class='margin-left-10'>2250 元</view>
+  </view>
+  <!-- <view class=' flex-row flex-center margin-top'>
+    <view class='h5'>请使用订单关联手机</view>
+    <view class='h5 margin-left-10 txt-primary' bindtap='bindphone'>{{}}</view>
+    <view class='h5 margin-left-10'>登录超快回收账户</view>
+  </view> -->
+</view>
+
+<view>
+<view class='flex-row flex-column margin-top '>
+  <view class='txt-black h5 '>回收须知</view>
+</view>
+<view class='flex-row flex-center margin-top'>
+  <view class='flex-1 flex-row flex-column '>
+    <image class=' icon-40' src='{{uploadpath}}resource/{{res.id_card}}'></image>
+    <view class='h5'>请准备好</view>
+    <view class='h5'>身份证</view>
+  </view>
+
+  <view class='flex-1 flex-row flex-column '>
+    <image class='icon-40' src='{{uploadpath}}resource/{{res.clock}}'></image>
+    <view class='h5'>手动解除</view>
+    <view class='h5'>账户</view>
+  </view>
+
+  <view class='flex-1 flex-row flex-column '>
+    <image class='icon-40' src='{{uploadpath}}resource/{{res.butt}}'></image>
+    <view class='h5'>充电至80%</view>
+    <view class='h5'>以上</view>
+  </view>
+</view>
+</view>
+
+
+
+
+
+
+<view class=' bg_g margin-top-80 flex-row flex-column'>
+ <view class='h5 margin-top ft'>工作人员将会致电联系您</view>
+ <view class='h5 ft'>回收成功，将会支付货款</view>
+</view>
+
+<navigator url='/pages/myorder/myorder' class='height-100 bg  flex-row flex-column' style='line-height:100rpx'>查看订单</navigator>

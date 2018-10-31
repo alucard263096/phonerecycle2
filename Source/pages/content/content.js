@@ -9,7 +9,8 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
+    options.keycode="帮助中心";
+    options.title = "aaaas";
     super.onLoad(options);
   }
   onShow() {
@@ -25,7 +26,6 @@ class Content extends AppBase {
           title: title,
         })
       } else {
-
         data.content = that.Base.util.HtmlDecode(data.content);
         WxParse.wxParse('content', 'html', data.content, that, 10);
         that.setData({ title: data.name }); 
@@ -34,6 +34,7 @@ class Content extends AppBase {
         })
       }
     });
+    
   }
 }
 var content = new Content();

@@ -1,0 +1,18 @@
+/* pages/subsuccess/subsuccess.wxss */
+.Top{
+  padding-bottom: 40rpx;
+  border-bottom: 20rpx solid #f3f2f8;
+}
+.ft{
+  color: #b3b4bb;
+}
+.bg_g{
+  background: #f3f2f8;
+  height: 450rpx;
+}
+.bg{
+  background: #2699EC;
+  position: fixed;
+  bottom:0px;
+  width: 100%;
+}

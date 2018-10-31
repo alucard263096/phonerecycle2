@@ -1,0 +1,21 @@
+/* pages/fastrecovery/fastrecovery.wxss */
+Page{
+  padding-bottom: 150rpx;
+}
+.border{
+  border: 1rpx solid #dad8d8;
+  border-radius: 7rpx;
+}
+checkbox .wx-checkbox-input{
+   border-radius: 50%;
+   width: 30rpx; 
+   height: 30rpx; 
+}
+.submit_btn{
+  background: #2699EC;
+  color: white;
+  position: fixed;
+  bottom:0px;
+  z-index: 1;
+  width: 100%;
+}

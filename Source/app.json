@@ -1,16 +1,32 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/aboutus/aboutus",
+    "pages/details/details",
+    "pages/evaluation/evaluation",
+    "pages/jixingchengse/jixingchengse",
+    "pages/subsuccess/subsuccess",
+    "pages/helpcenter/helpcenter",
+    "pages/content/content",
+    "pages/myaccount/myaccount",
+    "pages/mine/mine",
+    "pages/myorder/myorder",
+    "pages/orderdetails/orderdetails",
+    "pages/problem/problem",
+    "pages/lianxikefu/lianxikefu",
+    "pages/fastrecovery/fastrecovery",
+    "pages/addressselect/addressselect",
+    "pages/newdetails/newdetails",
+    "pages/searchbox/searchbox",
     "pages/member/member",
     "pages/auth/auth",
     "pages/index/index",
-    "pages/content/content",
     "pages/logs/logs"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "enablePullDownRefresh": true,
-    "navigationBarBackgroundColor": "#f8f8f8",
+    "navigationBarBackgroundColor": "white",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -20,16 +36,16 @@
     "backgroundColor": "#ffffff",
     "list": [
       {
-        "text": "估值",
+        "text": "主页",
         "pagePath": "pages/home/home",
-        "iconPath": "images/icons/a-a.png",
-        "selectedIconPath": "images/icons/a.png"
+        "iconPath": "images/icons/b-a.png",
+        "selectedIconPath": "images/icons/b.png"
       },
       {
         "text": "我的",
-        "pagePath": "pages/member/member",
-        "iconPath": "images/icons/b-a.png",
-        "selectedIconPath": "images/icons/b.png"
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/icons/a-a.png",
+        "selectedIconPath": "images/icons/a.png"
       }
     ]
   }
