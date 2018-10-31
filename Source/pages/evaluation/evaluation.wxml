@@ -4,7 +4,7 @@
   <view class='h4 txt-black margin-left-10'>{{modelinfo.model_name}}</view>
   <view class='Top  flex-row flex-center'>
     <view class='flex-3 flex-row '>
-      <view class='txt-bold font-120 txt-black'>3050</view>
+      <view class='txt-bold font-120 txt-black'>{{price}}</view>
       <view class='txt-bold padding-top-70 margin-left-10 txt-black'>元</view>
     </view>
     <navigator class='flex-1' bindtap='bindelt'>

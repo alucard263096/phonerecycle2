@@ -30,6 +30,8 @@ class Content extends AppBase {
       s3: 3
     });
     this.Base.setMyData({
+      price: this.Base.options.price,
+      anwser: this.Base.options.anwser,
       today: this.Base.util.FormatDate(new Date())
     });
     console.log(options.id);
@@ -198,6 +200,8 @@ class Content extends AppBase {
     //var country = this.Base.getMyData().country;
     var mobile = this.Base.getMyData().mobile;
     var address = this.Base.getMyData().address;
+    var price = this.Base.getMyData().price;
+    var anwser = this.Base.getMyData().anwser;
     var date = this.Base.getMyData().date;
     var that = this;
     var phoneapi = new PhoneApi();
@@ -207,9 +211,9 @@ class Content extends AppBase {
       country: district,
       mobile: mobile,
       address: address,
-      price: "3050",
+      price: price,
       status: "A",
-      answer: "题目",
+      answer: anwser,
       orderdate: date
     }, (order) => {
       this.Base.setMyData({
@@ -223,15 +227,17 @@ class Content extends AppBase {
     var city = myaddress.city;
     var mobile = this.Base.getMyData().mobile;
     var date = this.Base.getMyData().date;
+    var price = this.Base.getMyData().price;
+    var anwser = this.Base.getMyData().anwser;
     var that = this;
     var phoneapi = new PhoneApi();
     phoneapi.order({
       city: city,
       transactionmode: "地铁取货",
       mobile: mobile,
-      price: "3050",
+      price: price,
       status: "A",
-      answer: "题目",
+      answer: anwser,
       orderdate: date
     }, (order) => {
       this.Base.setMyData({

@@ -7,8 +7,8 @@
     <view class='h6 padding-left-10 padding-top-10' style='color:gray'>{{timu.length}}</view>
   </view>
 </view>
-
-<view class=" flex-row column " wx:for="{{timu}}" wx:key="k" wx:for-index="idx" hidden='{{timu[idx-1].xuanle==""}}'>
+<view>{{blockseq}}测试定价，后续删除：{{price}} - {{minusprice}} = {{totalprice}}</view>
+<view class=" flex-row column " wx:for="{{timu}}" wx:key="k" wx:for-index="idx" hidden='{{timu[idx-1].xuanle==""}}' wx:if="{{blockseq==-1||idx<blockseq+1}}">
 
   <view class='flex-row flex-center ' style='margin-left:20rpx;'>
     <view>{{idx+1}}{{xuanle}}</view>
@@ -24,4 +24,6 @@
   </view>
 </view>
 
-<navigator url='/pages/evaluation/evaluation?id={{options.id}}' hidden='{{da<timu.length}}'  class='height-100 bg  flex-row flex-column' style='line-height:100rpx'>查看定价</navigator>
+<navigator url='/pages/evaluation/evaluation?id={{options.id}}&price={{totalprice}}&anwser={{anwser}}' hidden='{{da<timu.length}}' wx:if="{{totalprice>=0}}"  class='height-100 bg  flex-row flex-column' style='line-height:100rpx'>查看定价</navigator>
+
+<navigator   class='height-100 bg-gray  flex-row flex-column' style='line-height:100rpx'  wx:if="{{totalprice<0}}">拒绝收机</navigator>

@@ -17,7 +17,7 @@
 </scroll-view>
 
 <scroll-view scroll-y='true' class='flex-3   flex-row column' style='height:1104rpx;'>
-<navigator url='/pages/problem/problem?id={{item.id}}' class='padding-30 margin-left-50  h5' wx:for='{{model}}' wx:key="k" hidden='{{s!=0&& s!=item.brand_id}}'>{{item.model_name}}</navigator>
+<navigator url='/pages/problem/problem?id={{item.id}}{{options.newphone!=undefined?"&new=Y":""}}' class='padding-30 margin-left-50  h5' wx:for='{{model}}' wx:key="k" hidden='{{s!=0&& s!=item.brand_id}}'>{{item.model_name}}</navigator>
 
 </scroll-view>
 </view>

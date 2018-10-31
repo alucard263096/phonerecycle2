@@ -41,6 +41,13 @@ Page{
   z-index: 1;
   width: 100%;
 }
+.bg-gray{
+  background: #aaa;
+  position: fixed;
+  bottom:0px;
+  z-index: 1;
+  width: 100%;
+}
 .radio-group{
 
 }
