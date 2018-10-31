@@ -4,8 +4,8 @@
     <input class='h5 flex-1 txt-black' focus='true' placeholder='搜索您要的品牌、机型' bindinput='search'></input>
     <view class='padding-left-20 padding-right-10' bindtap=''><image class='prohibit_icon ' src='{{uploadpath}}resource/{{res.prohibit}}'></image></view>
   </view>
-  <navigator class='padding-left-20 h5 txt-orange' bindtap='bindFocus'>取消</navigator>
+  <navigator class='padding-left-20 h5 txt-primary' bindtap='bindFocus'>取消</navigator>
 </view>
-<view wx:for="{{result}}" wx:key="k" wx:for-index='idx'>
+<navigator url='/pages/problem/problem' class='h5 padding-20 margin-left-40' wx:for="{{result}}" wx:key="k" wx:for-index='idx'>
   {{item.model_name}} 最高价：{{options.new=='Y'?item.pricenew:item.priceold}}
-</view>
+</navigator>

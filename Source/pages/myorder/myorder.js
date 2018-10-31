@@ -20,13 +20,13 @@ class Content extends AppBase {
       title: "我的订单",
     })
     var phoneapi = new PhoneApi();
-    phoneapi.orderlist({status:"A"}, (orderlist) => {
+    phoneapi.orderlist({ status: "A", orderby:" r_main.id "  }, (orderlist) => {
       this.Base.setMyData({ orderlist });
     });
-    phoneapi.orderlist({ status: "B" }, (orderlistB) => {
+    phoneapi.orderlist({ status: "B", orderby: " r_main.id " }, (orderlistB) => {
       this.Base.setMyData({ orderlistB });
     });
-    phoneapi.orderlist({ status: "C" }, (orderlistC) => {
+    phoneapi.orderlist({ status: "C", orderby: " r_main.id "}, (orderlistC) => {
       this.Base.setMyData({ orderlistC });
     });
   }

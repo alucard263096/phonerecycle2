@@ -9,7 +9,7 @@
 
 <view>
   <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='width:750rpx;height:350rpx;'>
-    <swiper-item wx:for="{{indexbanner}}" wx:key="k" catchtouchmove="stopTouchMove">
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k" >
       <view>
         <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:350rpx;' mode="aspectFill"></image>
       </view>
@@ -101,7 +101,7 @@
 </view>
 
 <navigator url='/pages/details/details' class='flex-row flex-wrap ' style='margin-top:10rpx;'>
-  <view class=' phone   flex-row flex-center ma-{{idx%2}}' style='width:345rpx;height:210rpx;' wx:for="{{tuijian}}" wx:key="k" wx:for-index="idx">
+  <view class=' phone   flex-row flex-center ma-{{idx%2}} margin-top-20' style='width:345rpx;height:210rpx;' wx:for="{{tuijian}}" wx:key="k" wx:for-index="idx">
     <view class='padding-10'>
       <view class='flex-row flex-center'>
         <view class=''><image mode="aspectFit" class='icon' src='{{uploadpath}}tuijian/{{item.phone_img}}'></image></view>

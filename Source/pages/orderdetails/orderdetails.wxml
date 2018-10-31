@@ -38,7 +38,7 @@
 
     <view class='flex-row flex-center margin-bottom-20'>
       <view class='h5'>创建时间：</view>
-      <view class='h5'>{{orderinfo.updated_date}}</view>
+      <view class='h5'>{{orderinfo.orderdate_formatting}}</view>
     </view>
 
     <view class='flex-row flex-center margin-bottom-20'>
@@ -93,7 +93,7 @@
 
     <view class='flex-row flex-center margin-bottom-20'>
       <view class='h5'>创建时间：</view>
-      <view class='h5'>{{orderinfo.updated_date}}</view>
+      <view class='h5'>{{orderinfo.orderdate_formatting}}</view>
     </view>
 
     <view class='flex-row flex-center margin-bottom-20'>
@@ -181,7 +181,7 @@
 
     <view class='flex-row flex-center margin-bottom-20'>
       <view class='h5'>创建时间：</view>
-      <view class='h5 txt-black'>{{orderinfo.updated_date}}</view>
+      <view class='h5 txt-black'>{{orderinfo.orderdate_formatting}}</view>
     </view>
 
     <view class='flex-row flex-center margin-bottom-20'>

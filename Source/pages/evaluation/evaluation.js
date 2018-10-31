@@ -298,6 +298,7 @@ class Content extends AppBase {
     var mobile = this.Base.getMyData().mobile;
     var date = this.Base.getMyData().date;
     var price = this.Base.getMyData().price;
+
     var anwser = this.Base.getMyData().anwser;
     var zhandian = this.Base.getMyData().zhandian;
     console.log(zhandian);

@@ -140,8 +140,9 @@
 <view class="section">
   <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{subwayindex}}" range="{{subwayarr}}">
     <view class="picker">
-      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' disabled='' maxlength='30' placeholder='请选择地铁站' value='{{subwayarr[0][subwayindex[0]]}}{{subwayarr[1][subwayindex[1]]}}'></input>
-    </view>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' disabled='true' maxlength='30' placeholder='请选择地铁站' value='{{zhandian}}'></input>
+
+      </view>
   </picker>
 </view>
     </view>
@@ -172,4 +173,3 @@
 </form>
 
 </view>
-
