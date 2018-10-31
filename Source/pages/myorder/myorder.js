@@ -45,6 +45,15 @@ class Content extends AppBase {
       s1: 3, s2: 3, s3: 3
     })
   }
+  cancelorder(e){
+    var that =this;
+    var phoneapi = new PhoneApi();
+    phoneapi.cancleorder("id", (cancleorder) => {
+      this.Base.setMyData({ 
+        status: "C"
+       });
+    });
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -52,5 +61,6 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindsuccess = content.bindsuccess;
 body.bindwait = content.bindwait;
-body.bindcancel = content.bindcancel;
+body.bindcancel = content.bindcancel; 
+body.cancelorder = content.cancelorder;
 Page(body)
