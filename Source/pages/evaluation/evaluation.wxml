@@ -137,7 +137,13 @@
       <!-- <navigator class='txt-blue margin-top-10 h6'>更改</navigator> -->
     </view>
     <view class='head flex-row flex-center'>
-      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' name='subway' disabled='' maxlength='30' placeholder='请选择地铁站'></input>
+<view class="section">
+  <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{subwayindex}}" range="{{subwayarr}}">
+    <view class="picker">
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' disabled='' maxlength='30' placeholder='请选择地铁站' value='{{subwayarr[0][subwayindex[0]]}}{{subwayarr[1][subwayindex[1]]}}'></input>
+    </view>
+  </picker>
+</view>
     </view>
     <view class='head flex-row flex-center'>
       <!-- <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' type='number' bindinput='expresstomobile' maxlength='30' placeholder='请输入电话号码'></input> -->

@@ -21,10 +21,11 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      show: true
+      show: false,
+      hide: true
     });
     this.Base.setMyData({
-      s1: 1
+      s3: 4
     });
     this.Base.setMyData({
       s3: 3,
@@ -44,9 +45,28 @@ class Content extends AppBase {
     //   this.Base.setMyData({ order });
     // });
     this.Base.getAddress((address) => {
+      console.log(address);
       this.Base.setMyData({
         myaddress: address.address_component
-      })
+      });
+      var phoneapi = new PhoneApi();
+      phoneapi.subway({
+        shi: address.address_component.city
+      }, (res) => {
+        var subwayarr = [[],[]];
+        for (var i=0;i<res.length;i++) {
+          subwayarr[0].push(res[i].xianlu);
+          for (var j = 0; j < res[i].stationlist.length; j++) {
+            subwayarr[1].push(res[i].stationlist[j].zhandian);
+          }
+        }
+        this.Base.setMyData({
+          zhandian: res[0].xianlu + res[0].stationlist[0].zhandian,
+          subway: res,
+          subwayarr: subwayarr,
+          subwayindex: [0, 0]
+        });
+      });
     });
 
     var phoneapi = new PhoneApi();
@@ -275,6 +295,11 @@ class Content extends AppBase {
     var city = myaddress.city;
     var mobile = this.Base.getMyData().mobile;
     var date = this.Base.getMyData().date;
+    var price = this.Base.getMyData().price; 
+    var anwser = this.Base.getMyData().anwser;
+    var zhandian = this.Base.getMyData().zhandian;
+    console.log(zhandian);
+
     var that = this;
     var phoneapi = new PhoneApi();
     phoneapi.order({
@@ -284,7 +309,8 @@ class Content extends AppBase {
       price: "3050",
       status: "A",
       answer: "题目",
-      orderdate: date
+      orderdate: date,
+      zhandian: zhandian
     }, (order) => {
       wx.reLaunch({
         url: '/pages/subsuccess/subsuccess',
@@ -394,7 +420,27 @@ class Content extends AppBase {
       date: e.detail.value
     })
   }
-
+  bindMultiPickerChange(e){
+    var i = e.detail.value[0];
+    var j = e.detail.value[1];
+    var subway = this.Base.getMyData().subway;
+    this.Base.setMyData({ zhandian: subway[i].xianlu + subway[i].stationlist[j].zhandian});
+  }
+  bindMultiPickerColumnChange(e) {
+    console.log(e);
+    if (e.detail.column==0){
+      var i = e.detail.value;
+      //console.log(i);
+      var subwayarr = this.Base.getMyData().subwayarr;
+      var subway = this.Base.getMyData().subway;
+      subwayarr[1]=[];
+      for (var j = 0; j < subway[i].stationlist.length; j++) {
+        //console.log(subway[i].stationlist[j].zhandian);
+        subwayarr[1].push(subway[i].stationlist[j].zhandian);
+      }
+      this.Base.setMyData({ subwayarr});
+    }
+  } 
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -427,9 +473,11 @@ body.expresstomobile = content.expresstomobile;
 body.bindDateChange = content.bindDateChange;
 body.expresstodate = content.expresstodate;
 body.waybillnum = content.waybillnum;
-body.subwaytradedate = content.subwaytradedate;
+body.subwaytradedate = content.subwaytradedate; 
 body.bindtishi = content.bindtishi;
 body.confirm = content.confirm;
 body.expresstoconfirm = content.expresstoconfirm;
 body.subwayconfirm = content.subwayconfirm;
+body.bindMultiPickerChange = content.bindMultiPickerChange;
+body.bindMultiPickerColumnChange = content.bindMultiPickerColumnChange;
 Page(body)
