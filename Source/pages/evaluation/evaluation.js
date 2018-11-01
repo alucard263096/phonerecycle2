@@ -21,8 +21,8 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      show: false,
-      hide: true
+      show: true,
+      hide: false
     });
     this.Base.setMyData({
       s3: 4
@@ -215,7 +215,7 @@ class Content extends AppBase {
       address: address,
       price: price,
       answer: anwser,
-      status: "A",
+      status: "D",
       username: name,
       waybillnum: waybillnum
     }, (order) => {

@@ -99,8 +99,8 @@
     <image class='icon-10 ' src='{{uploadpath}}resource/{{res.more}}'></image>
   </navigator>
 </view>
-
-<navigator url='/pages/details/details' class='flex-row flex-wrap ' style='margin-top:10rpx;'>
+<!-- url='/pages/problem/problem?model_id={{model_id}}' -->
+<view  bindtap='bindtoproblem' class='flex-row flex-wrap ' style='margin-top:10rpx;'>
   <view class=' phone   flex-row flex-center ma-{{idx%2}} margin-top-20' style='width:345rpx;height:210rpx;' wx:for="{{tuijian}}" wx:key="k" wx:for-index="idx">
     <view class='padding-10'>
       <view class='flex-row flex-center'>
@@ -113,6 +113,6 @@
       </view>
     </view>
   </view>
-</navigator>
+</view>
 
 <view class='height-70 '></view>

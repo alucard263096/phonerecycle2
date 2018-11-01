@@ -29,7 +29,7 @@
       </navigator>
   </view>
 
-  <view class='{{s1==1?"":"hide"}}'>
+  <view class=''>
     <view class='head flex-row flex-center '>
       <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' name='city_name' bindinput='bindcity' placeholder='请输入城市名'></input>
       <!-- <navigator class='txt-blue margin-top-10 h6'>更改</navigator> -->
@@ -74,11 +74,6 @@
 </view>
 <button  form-type='submit' class='height-100 bg  flex-row flex-column {{show==true?"":"hide"}}' bindtap='bindsubmit' style='line-height:100rpx'>立即回收</button>
 </form>
-
-
-
-
-
 
 
 <view class='{{hide==true?"":"hide"}}'>

@@ -25,7 +25,7 @@ class Content extends AppBase {
 
     var phoneapi = new PhoneApi();
     phoneapi.timu({
-      model_id: this.Base.options.id
+      model_id: this.Base.options.id,
     }, (timu) => {
       var ntimu = [];
       for (var i = 0; i < timu.length; i++) {
@@ -48,13 +48,11 @@ class Content extends AppBase {
       })
     })
 
-
     phoneapi.modelinfo({id:this.Base.options.id},(info)=>{
       var price=0;
       if(this.Base.options.new=='Y'){
         price = parseInt(info.pricenew);
       }else{
-
         price = parseInt(info.priceold);
       }
       this.Base.setMyData({ price: price});

@@ -10,23 +10,67 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id=5;
+    //options.id=3;
     super.onLoad(options);
+    this.Base.setMyData({
+      open:2
+    })
   }
   onMyShow() {
     var that = this;
     wx.setNavigationBarTitle({
       title: "订单详情",
     })
+    console.log(this.options.id);
     var phoneapi = new PhoneApi();
     phoneapi.orderinfo({ id: this.options.id}, (orderinfo) => {
       this.Base.setMyData( {orderinfo} );
     });
     
   }
+  bindclosedetails(e){
+    this.Base.setMyData({
+      open:2
+    })
+    }
+
+  btnopendetails(){
+    this.Base.setMyData({
+      open:1
+    })
+  }
+  bindsuccess(e) {
+    var that = this;
+    var phoneapi = new PhoneApi();
+    phoneapi.cancleorder({ id: this.options.id }, (cancleorder) => {
+      this.Base.setMyData({
+        status: "B"
+      });
+      wx.reLaunch({
+        url: '/pages/myorder/myorder',
+      })
+    });
+  }
+  cancleorder(e){
+    var that = this;
+    var phoneapi = new PhoneApi();
+    phoneapi.cancleorder({ id: this.options.id }, (cancleorder) => {
+      this.Base.setMyData({
+        status: "C"
+      });
+      wx.reLaunch({
+        url: '/pages/myorder/myorder',
+      })
+    });
+  
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.btnopendetails = content.btnopendetails;
+body.bindclosedetails = content.bindclosedetails;
+body.cancleorder = content.cancleorder; 
+body.bindsuccess = content.bindsuccess; 
 Page(body)
