@@ -8,7 +8,7 @@
     <image class='icon-75' src='{{uploadpath}}resource/{{res.Y_icon}}'></image>
   </view>
   <view class=' flex-row flex-center margin-top'>
-    <view class='txt-black'>订单提交成功</view>
+    <view class='txt-black'>订单提交成功,预估价为</view>
     <view class='margin-left-10'>{{price}} 元</view>
   </view>
   <!-- <view class=' flex-row flex-center margin-top'>

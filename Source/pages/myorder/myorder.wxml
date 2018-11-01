@@ -42,7 +42,7 @@
 
 </view>
 
-<view class='top margin-bottom-20' wx:for='{{orderlistB}}' wx:key='k' hidden='{{s2!=2}}'>
+<view class='top margin-bottom-20' wx:for='{{orderlistS}}' wx:key='k' hidden='{{s2!=2}}'>
   <!-- <view class='head'></view> -->
   <view class='flex-row flex-center padding-10 '>
     <view class='h6 padding-left-20'>{{item.orderdate_formatting}}</view>

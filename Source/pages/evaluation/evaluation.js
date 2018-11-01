@@ -215,7 +215,7 @@ class Content extends AppBase {
       address: address,
       price: price,
       answer: anwser,
-      status: "D",
+      status: "A",
       username: name,
       waybillnum: waybillnum
     }, (order) => {

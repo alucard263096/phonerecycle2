@@ -23,8 +23,8 @@ class Content extends AppBase {
     phoneapi.orderlist({ status: "A", orderby:" r_main.id desc"  }, (orderlist) => {
       this.Base.setMyData({ orderlist });
     });
-    phoneapi.orderlist({ status: "B", orderby: " r_main.id desc" }, (orderlistB) => {
-      this.Base.setMyData({ orderlistB });
+    phoneapi.orderlist({ status: "S", orderby: " r_main.id desc" }, (orderlistS) => {
+      this.Base.setMyData({ orderlistS });
     });
     phoneapi.orderlist({ status: "C", orderby: " r_main.id desc"}, (orderlistC) => {
       this.Base.setMyData({ orderlistC });
@@ -32,6 +32,7 @@ class Content extends AppBase {
     phoneapi.orderlist({ status: "W", orderby: " r_main.id desc" }, (orderlistW) => {
       this.Base.setMyData({ orderlistW });
     });
+    
   }
   bindsuccess(e){
    this.Base.setMyData({
@@ -63,9 +64,7 @@ class Content extends AppBase {
       this.Base.setMyData({
         status:"C"
        });
-      wx.reLaunch({
-        url: '/pages/myorder/myorder',
-      })
+       
     });
     
   }
@@ -78,9 +77,7 @@ class Content extends AppBase {
        this.Base.setMyData({
          status: "C"
        });
-       wx.reLaunch({
-         url: '/pages/myorder/myorder',
-       })
+       
      });
      
    }

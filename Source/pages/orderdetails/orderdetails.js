@@ -42,9 +42,9 @@ class Content extends AppBase {
   bindsuccess(e) {
     var that = this;
     var phoneapi = new PhoneApi();
-    phoneapi.cancleorder({ id: this.options.id }, (cancleorder) => {
+    phoneapi.addsuccess({ id: this.options.id }, (addsuccess) => {
       this.Base.setMyData({
-        status: "B"
+        status: "S"
       });
       wx.reLaunch({
         url: '/pages/myorder/myorder',
