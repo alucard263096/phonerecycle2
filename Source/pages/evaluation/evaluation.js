@@ -35,11 +35,9 @@ class Content extends AppBase {
       today: this.Base.util.FormatDate(new Date()),
       price: this.Base.options.price,
       anwser: this.Base.options.anwser,
-      color: this.Base.options.color, 
-      memory: this.Base.options.memory,
+      chuanhao: this.Base.options.chuanhao,
       recoverynum: this.Base.options.recoverynum,
-      describe: this.Base.options.describe, 
-      ziguprice: this.Base.options.ziguprice
+      describe: this.Base.options.describe
     });
     
   }
@@ -213,8 +211,8 @@ class Content extends AppBase {
     var color = this.Base.getMyData().color;
     var memory = this.Base.getMyData().memory;
     var recoverynum = this.Base.getMyData().recoverynum;
-    var describe = this.Base.getMyData().chuanhao;
-    var ziguprice = this.Base.getMyData().ziguprice;
+    var describe = this.Base.getMyData().describe;
+    var chuanhao = this.Base.getMyData().chuanhao;
     var that = this;
     var phoneapi = new PhoneApi();
     phoneapi.order({
@@ -225,7 +223,7 @@ class Content extends AppBase {
       mobile: mobile,
       address: address,
       price: price,
-      serialnum:chuanhao,
+      chuanhao:chuanhao,
       answer: anwser,
       status: "A",
       username: name,
@@ -279,7 +277,7 @@ class Content extends AppBase {
       brand_model_name: modelinfo.model_name,
       price: price,
       answer: anwser,
-      serialnum: chuanhao,
+      chuanhao: chuanhao,
       status: "A",
       orderdate: date
     }, (order) => {
@@ -330,7 +328,7 @@ class Content extends AppBase {
       price: price,
       status: "A",
       answer: anwser,
-      serialnum: chuanhao,
+      chuanhao: chuanhao,
       orderdate: date,
       zhandian: zhandian
     }, (order) => {

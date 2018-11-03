@@ -31,7 +31,7 @@ class Content extends AppBase {
       for (var i = 0; i < timu.length; i++) {
         if (timu[i].type == 'A' ||
           (this.Base.options.new == 'Y' && timu[i].type == 'N') ||
-          (this.Base.options.new != 'Y' && timu[i].type == 'Y')) {
+          (this.Base.options.new != 'Y' && timu[i].type == 'O')) {
 
           timu[i].options = timu[i].xuanxiang.split("\n");
           timu[i].priceopt = timu[i].priceopt.split("\n");

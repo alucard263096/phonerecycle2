@@ -24,6 +24,7 @@ class Content extends AppBase {
     console.log(this.options.id);
     var phoneapi = new PhoneApi();
     phoneapi.orderinfo({ id: this.options.id}, (orderinfo) => {
+      orderinfo.anwserline = orderinfo.answer.replace(",","\n");
       this.Base.setMyData( {orderinfo} );
     });
   }

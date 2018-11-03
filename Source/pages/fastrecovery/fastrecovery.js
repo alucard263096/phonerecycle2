@@ -24,7 +24,14 @@ class Content extends AppBase {
     var that = this;
     wx.setNavigationBarTitle({
       title: "一键下单",
-    })
+    });
+
+    if (this.Base.getMyData().model_id != undefined) {
+      var phoneapi = new PhoneApi();
+      phoneapi.modelinfo({ id: this.Base.getMyData().model_id }, (info) => {
+        this.Base.setMyData({ modelinfo: info });
+      });
+    }
   }
   bindbrand(e) {
     var phoneapi = new PhoneApi();
@@ -33,6 +40,7 @@ class Content extends AppBase {
     });
   }
   confirm(e) {
+    console.log(e);
     var data = e.detail.value;
     // if (data.brand == "") {
     //   this.Base.info("请选择品牌");
@@ -42,7 +50,11 @@ class Content extends AppBase {
     //   this.Base.info("请选择型号");
     //   return;
     // }
-    
+    data.model_id=this.Base.getMyData().model_id;
+    if(data.model_id==undefined){
+      this.Base.info("请选择品牌型号");
+      return;
+    }
     if (data.phonecolor == "") {
       this.Base.info("请输入颜色");
       return;
@@ -51,6 +63,31 @@ class Content extends AppBase {
       this.Base.info("请输入内存");
       return;
     }
+    var url ="/pages/evaluation/evaluation?";
+    url += "id=" + data.model_id;
+    var anwser=[];
+    if (data.phonecolor != "") {
+      anwser.push("颜色：" + data.phonecolor);
+    }
+    if (data.memory != "") {
+      anwser.push("内存：" + data.memory);
+    }
+    if(data.checkbox.length>0){
+
+      anwser.push("机型成色：" + data.checkbox.join(" "));
+    }
+    
+
+    url += "&anwser=" + anwser.join(",");
+    url += "&chuanhao=" + data.chuanhao;
+    url += "&describe=" + data.describe;
+    url += "&price=" + data.price;
+    url += "&recoverynum=" + data.recoverynum;
+    console.log(e);
+    wx.navigateTo({
+      url: url,
+    })
+
     // if (data.price == "") {
     //   this.Base.info("请输入自估价");
     //   return;
@@ -158,12 +195,6 @@ class Content extends AppBase {
       ziguprice: e.detail.value
     })
   }
-  btntoeva(e){
-    var ziguprice = e.detail.value;
-    wx.navigateTo({
-      url: '/pages/evaluation/evaluation?ziguprice=' + ziguprice
-    });
-  }
   
 }
 var content = new Content();
@@ -181,5 +212,4 @@ body.color_input = content.color_input;
 body.chuanhao_input = content.chuanhao_input;
 body.model_input = content.model_input;
 body.brand_input = content.brand_input;
-body.btntoeva = content.btntoeva;
 Page(body)

@@ -817,7 +817,8 @@ export class AppBase {
   }
 
   contactkefu() {
-    var instinfo = AppBase.InstInfo;
+    var instinfo = this.Base.getMyData().instinfo;
+    console.log(instinfo);
     wx.showActionSheet({
       itemList: ["拨打热线", "添加客服"],
       success(e) {
@@ -826,7 +827,8 @@ export class AppBase {
             phoneNumber: instinfo.tel
           })
         }else{
-          var img=ApiConfig.GetUploadPath()+"inst/"+instinfo.qrcode;
+          var img = ApiConfig.GetUploadPath() + "inst/" + instinfo.kefuerweima;
+          console.log(img);
           wx.previewImage({
             urls: [img],
           })

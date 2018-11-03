@@ -11,12 +11,12 @@
       <image class=' icon-15' src='{{uploadpath}}resource/{{res.bixuanfuhao_icon}}'></image>
     </view>
     <view class='flex-1 margin-20 border padding-10'>
-      <picker bindchange='bindbrand' range='{{brand}}' range-key=''>
+      <navigator url='/pages/selectmodel/selectmodel' >
         <view class='flex-row flex-center'>
-          <input class='flex-1 h5 margin-left-10' name='brand' bindinput='brand_input'  placeholder='请选择品牌'></input>
+          <input class='flex-1 h5 margin-left-10' name='brand' value='{{modelinfo.brand_id_name}}' readonly   placeholder='请选择品牌'></input>
           <image class='felx-3 icon-15' src='{{uploadpath}}resource/{{res.bottom_icon}}'></image>
         </view>
-      </picker>
+      </navigator>
     </view>
   </view>
 
@@ -25,12 +25,12 @@
       <image class=' icon-15' src='{{uploadpath}}resource/{{res.bixuanfuhao_icon}}'></image>
     </view>
     <view class='flex-1 margin-20 border padding-10'>
-      <picker>
+      <navigator url='/pages/selectmodel/selectmodel' >
         <view class='flex-row flex-center'>
-          <input class='flex-1 h5 margin-left-10' name='model' bindinput='model_input' placeholder='请选择型号'></input>
+          <input class='flex-1 h5 margin-left-10' name='model'  value='{{modelinfo.model_name}}' readonly  bindinput='model_input' placeholder='请选择型号'></input>
           <image class='felx-3 icon-15' src='{{uploadpath}}resource/{{res.bottom_icon}}'></image>
         </view>
-      </picker>
+      </navigator>
     </view>
   </view>
 
@@ -115,17 +115,17 @@
 
     <checkbox-group name='checkbox' bindchange="">
       <label class="checkbox h5 ">
-        <checkbox color='#2699EC' value="" checked="" />充新
-        <checkbox color='#2699EC' value="" checked="" />靓机
-        <checkbox color='#2699EC' value="" checked="" />屏靓支架靓
-        <checkbox color='#2699EC' value="" checked="" />屏小花壳靓
-        <checkbox color='#2699EC' value="" checked="" />屏花
-        <checkbox color='#2699EC' value="" checked="" />触摸破
-        <checkbox color='#2699EC' value="" checked="" />内屏坏
+        <checkbox color='#2699EC' value="充新"  />充新
+        <checkbox color='#2699EC' value="靓机" />靓机
+        <checkbox color='#2699EC' value="屏靓支架靓"  />屏靓支架靓
+        <checkbox color='#2699EC' value="屏小花壳靓"  />屏小花壳靓
+        <checkbox color='#2699EC' value="屏花"  />屏花
+        <checkbox color='#2699EC' value="触摸破"  />触摸破
+        <checkbox color='#2699EC' value="内屏坏"  />内屏坏
       </label>
     </checkbox-group>
     
 </view>
 
-<button bindtap='btntoeva' form-type='submit' class='height-100 submit_btn  flex-row flex-column' style='line-height:100rpx'>立即下单</button>
+<button  form-type='submit' class='height-100 submit_btn  flex-row flex-column' style='line-height:100rpx'>立即下单</button>
 </form>
