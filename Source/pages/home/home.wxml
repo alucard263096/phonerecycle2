@@ -9,7 +9,7 @@
 
 <view>
   <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='width:750rpx;height:350rpx;'>
-    <swiper-item wx:for="{{indexbanner}}" wx:key="k" >
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k">
       <view>
         <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:350rpx;' mode="aspectFill"></image>
       </view>
@@ -18,22 +18,30 @@
 </view>
 
 <view class='Mid flex-row flex-center padding-20'>
-  <navigator  class='mid1 flex-1 flex-row padding-15 margin-right-15'>
-    <navigator url='/pages/details/details?newphone=Y'><image class='icon-40 ' src='{{uploadpath}}resource/{{res.xinjihuishou}}'></image></navigator>
+  <navigator class='mid1 flex-1 flex-row padding-15 margin-right-15'>
+    <navigator url='/pages/details/details?newphone=Y'>
+      <image class='icon-40 ' src='{{uploadpath}}resource/{{res.xinjihuishou}}'></image>
+    </navigator>
     <navigator url='/pages/details/details?newphone=Y' class='h4 flex-1'>
       <view class='txt-white'>新机回收</view>
       <view class=' h6 txt-white'>最潮最新的手机</view>
     </navigator>
-     <view class='' bindtap='bindtipsnew'><image class='icon-17' src='{{uploadpath}}resource/{{res.wen_icon}}'></image></view>
+    <view class='' bindtap='bindtipsnew'>
+      <image class='icon-17' src='{{uploadpath}}resource/{{res.wen_icon}}'></image>
+    </view>
   </navigator>
 
-  <navigator  class='mid2 flex-1 flex-row padding-15 margin-right-15'>
-    <navigator url='/pages/details/details'><image class='icon-40 ' src='{{uploadpath}}resource/{{res.jiujihuishou}}'></image></navigator>
+  <navigator class='mid2 flex-1 flex-row padding-15 margin-right-15'>
+    <navigator url='/pages/details/details'>
+      <image class='icon-40 ' src='{{uploadpath}}resource/{{res.jiujihuishou}}'></image>
+    </navigator>
     <navigator url='/pages/details/details' class='h4 flex-1'>
       <view class='txt-white'>旧机回收</view>
       <view class=' h6 txt-white'>被抛弃遗忘的手机</view>
     </navigator>
-     <view class='' bindtap='bindtipsold'><image class='icon-17' src='{{uploadpath}}resource/{{res.wen_icon}}'></image></view>
+    <view class='' bindtap='bindtipsold'>
+      <image class='icon-17' src='{{uploadpath}}resource/{{res.wen_icon}}'></image>
+    </view>
   </navigator>
 
 </view>
@@ -55,8 +63,8 @@
     <view class=' padding-20'>
       <image class='icon-10' src='{{uploadpath}}resource/{{res.you}}'></image>
     </view>
-    
-    <view  class='flex-1 flex-row flex-column'>
+
+    <view class='flex-1 flex-row flex-column'>
       <image class='icon-40' src='{{uploadpath}}resource/{{res.zaixianxiadan}}'></image>
       <view class='h6 '>在线下单</view>
     </view>
@@ -100,17 +108,20 @@
   </navigator>
 </view>
 <!-- url='/pages/problem/problem?model_id={{model_id}}' -->
-<view   class='flex-row flex-wrap '  style='margin-top:10rpx;'>
-  <view bindtap='bindtoproblem' id='{{item.model_id}}' class=' phone  flex-row flex-center ma-{{idx%2}} margin-top-20' style='width:345rpx;height:220rpx;' wx:for="{{tuijian}}" wx:key="k" wx:for-index="idx">
-      <view class='flex-row flex-center' >
-        <view class=''><image mode="aspectFit"  class='icon' src='{{uploadpath}}tuijian/{{item.phone_img}}'></image></view>
-        <view class='flex-1 flex-row column padding-left-20' >
-          <view class='h5' style=''>{{item.name}}</view>
-          <view class='h6 margin-top-5 txt-gray'>最高回收价</view>
-          <view class='h5 margin-top-5 txt-red'>￥{{item.price}}</view>
+<view bindtap='bindtoproblem' class='flex-row flex-wrap ' style='margin-top:10rpx;'>
+  <view class=' phone   flex-row flex-center ma-{{idx%2}} margin-top-20' style='width:345rpx;height:210rpx;' wx:for="{{tuijian}}" wx:key="k" wx:for-index="idx">
+    <view class='padding-10'>
+      <view class='flex-row flex-center'>
+        <view class=''>
+          <image mode="aspectFit" class='icon' src='{{uploadpath}}tuijian/{{item.phone_img}}'></image></view>
+          <view class=' flex-row column margin-left-20'>
+            <view class='h5' style=''>{{item.name}}</view>
+            <view class='h6 margin-top-5 txt-gray'>最高回收价</view>
+            <view class='h5 margin-top-5 txt-red'>￥{{item.price}}</view>
+          </view>
         </view>
       </view>
+    </view>
   </view>
-</view>
 
-<view class='height-70 '></view>
+  <view class='height-70 '></view>

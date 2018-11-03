@@ -89,8 +89,23 @@ class Content extends AppBase {
         status: "S"
       });
       this.onMyShow();
-    });
+       });
+       
+    
   }
+   bindclosewait(e){
+     var that = this;
+     console.log(e);
+     var phoneapi = new PhoneApi();
+     var id = e.currentTarget.id;
+     phoneapi.cancleorder({ id: id }, (cancleorder) => {
+       this.Base.setMyData({
+         status: "C"
+       });
+       
+     });
+     
+   }
 
 }
 var content = new Content();

@@ -263,8 +263,8 @@ class Content extends AppBase {
     var mobile = this.Base.getMyData().mobile;
     var address = this.Base.getMyData().address;
     var date = this.Base.getMyData().date;
-    var price = this.Base.getMyData().price;
     var chuanhao = this.Base.getMyData().chuanhao;
+    var price = this.Base.getMyData().price;
     var anwser = this.Base.getMyData().anwser;
     var that = this;
     var phoneapi = new PhoneApi();
@@ -313,6 +313,7 @@ class Content extends AppBase {
     var date = this.Base.getMyData().date;
     var price = this.Base.getMyData().price;
     var modelinfo = this.Base.getMyData().modelinfo;
+
     var anwser = this.Base.getMyData().anwser;
     var chuanhao = this.Base.getMyData().chuanhao;
     var zhandian = this.Base.getMyData().zhandian;

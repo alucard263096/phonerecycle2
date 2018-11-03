@@ -22,9 +22,7 @@
 
       <view class='flex-row column padding-left-30'>
         <view class='h5 txt-black flex-1 padding-10'>{{item.brand_model_name}}</view>
-        
-        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' style='width:80rpx;border-radius:5rpx;'>{{item.transactionmode_name}}</view>
-
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' style='width:80rpx;border-radius:5rpx;'>{{item.transactionmode}}</view>
         <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
 
         <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view>
@@ -37,7 +35,7 @@
 
   <view class='border_t padding-20 flex-row flex-center'>
     <view class='flex-5'></view>
-    <view bindtap='cancleorder' id='{{item.id}}' style='border-radius:10rpx;background:#ff6161' class='h6 txt-white  again padding-10 flex-1 text-center'>取消订单</view>
+    <view bindtap='cancleorder' id='{{item.id}}' class='h6 again padding-10 flex-1 text-center'>取消订单</view>
   </view>
 
 </view>
@@ -66,7 +64,7 @@
 
   <view class='border_t padding-20 flex-row flex-center'>
     <view class='flex-5'></view>
-    <navigator  class='flex-1 '></navigator>
+    <navigator url='/pages/problem/problem?id={{391}}' class='h6 again padding-10 flex-1 text-center'>重新询价</navigator>
   </view>
 
 </view>
@@ -75,7 +73,7 @@
   <!-- <view class='head'></view> -->
   <view class='flex-row flex-center padding-10 '>
     <view class='h6 padding-left-20'>{{item.orderdate_formatting}}</view>
-    <view class='flex-1 text-right h6 txt-red padding-right-20'>交易取消</view>
+    <view class='flex-1 text-right h6 txt-primary padding-right-20'>交易已取消</view>
   </view>
 
   <navigator url='/pages/orderdetails/orderdetails?id={{item.id}}' class='border_t padding-20'>
@@ -95,7 +93,7 @@
 
   <view class='border_t padding-20 flex-row flex-center'>
     <view class='flex-5'></view>
-    <navigator  class='h6 flex-1 '></navigator>
+    <navigator url='/pages/problem/problem?id={{391}}' class='h6 again padding-10 flex-1 text-center'>重新询价</navigator>
   </view>
 
 </view>
@@ -114,7 +112,7 @@
       </view>
       <view class='flex-row column padding-left-30'>
         <view class='h5 txt-black flex-1 padding-10'>{{item.brand_model_name}}</view>
-        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' style='width:80rpx;border-radius:5rpx;'>{{item.transactionmode_name}}</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' style='width:80rpx;border-radius:5rpx;'>{{item.transactionmode}}</view>
         <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
         <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view>
         <view class='flex-1 h6 padding-10'>￥{{item.price}}</view>
@@ -123,9 +121,14 @@
   </navigator>
 
   <view class='border_t padding-20 flex-row flex-center'>
+
     <view class='flex-4'></view>
     <navigator bindtap='bindordersuccess' id='{{item.id}}' style='border-radius:10rpx' class='flex-1 h6 again margin-right-40 padding-10 text-center bg-primary txt-white'>确认交易</navigator>
     <navigator bindtap='bindclosewait' id='{{item.id}}' style='border-radius:10rpx;background:#ff6161' class='h6 txt-white again padding-10 flex-1 text-center'>拒绝报价</navigator>
+    
+    
+    <view class='flex-5'></view>
+    <navigator bindtap='bindclosewait' id='{{item.id}}' class='h6 again padding-10 flex-1 text-center'>取消订单</navigator>
     
   </view>
 

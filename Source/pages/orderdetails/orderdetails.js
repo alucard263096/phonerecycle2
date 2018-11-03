@@ -65,6 +65,42 @@ class Content extends AppBase {
       this.onMyShow();
     });
   }
+  bindclosedetails(e){
+    this.Base.setMyData({
+      open:2
+    })
+    }
+
+  btnopendetails(){
+    this.Base.setMyData({
+      open:1
+    })
+  }
+  bindsuccess(e) {
+    var that = this;
+    var phoneapi = new PhoneApi();
+    phoneapi.addsuccess({ id: this.options.id }, (addsuccess) => {
+      this.Base.setMyData({
+        status: "S"
+      });
+      wx.reLaunch({
+        url: '/pages/myorder/myorder',
+      })
+    });
+  }
+  cancleorder(e){
+    var that = this;
+    var phoneapi = new PhoneApi();
+    phoneapi.cancleorder({ id: this.options.id }, (cancleorder) => {
+      this.Base.setMyData({
+        status: "C"
+      });
+      wx.reLaunch({
+        url: '/pages/myorder/myorder',
+      })
+    });
+  
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();

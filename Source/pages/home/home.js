@@ -55,7 +55,8 @@ class Content extends AppBase {
        url: '/pages/problem/problem?id=' + id,
      })
   }
-}
+
+} 
 var markers=[];
 var mapCtx = null;
 var content = new Content();
