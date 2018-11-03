@@ -104,10 +104,17 @@ class Content extends AppBase {
           console.log(timu[i].options[j]);
           if (xuanle == timu[i].options[j]) {
             anwser.push(xuanle);
+            
             var vpri = parseInt(timu[i].priceopt[j]);
             console.log(vpri);
             if (vpri > 0) {
-              minusprice = minusprice + vpri;
+              
+              if (timu[i].baseprice_value == 'Y') {
+                price =  vpri;
+              } else {
+
+                minusprice = minusprice + vpri;
+              }
             } else if (vpri < 0) {
               this.Base.setMyData({totalprice:-1,blockseq:i});
               return;
@@ -118,7 +125,7 @@ class Content extends AppBase {
       }
     }
     var totalprice=price-minusprice;
-    this.Base.setMyData({ minusprice: minusprice, totalprice: totalprice, anwser: anwser.join(","), blockseq:-1 });
+    this.Base.setMyData({ price: price, minusprice: minusprice, totalprice: totalprice, anwser: anwser.join(","), blockseq:-1 });
   }
   ChuanHao(e){
     var chuanhao = e.detail.value;
