@@ -7,7 +7,8 @@
     <view class='h6 padding-left-10 padding-top-10' style='color:gray'>{{timu.length}}</view>
   </view>
 </view>
-<!-- <view>{{blockseq}}测试定价，后续删除：{{price}} - {{minusprice}} = {{totalprice}}</view> -->
+
+ <view>{{blockseq}}测试定价，后续删除：{{price}} - {{minusprice}} = {{totalprice}}</view> 
 <view class=" flex-row column " wx:for="{{timu}}" wx:key="k" wx:for-index="idx" hidden='{{timu[idx-1].xuanle==""}}' wx:if="{{blockseq==-1||idx<blockseq+1}}">
 
   <view class='flex-row flex-center ' style='margin-left:20rpx;'>
@@ -24,6 +25,13 @@
   </view>
 </view>
 
+<!-- <form bindsubmit="confirm" bindreset="formReset" hidden='{{}}' report-submit="{{true}}">
+<view class='padding-20 flex-row column'>
+<view>串码：</view>
+<view class='margin-top-10 bg-white' style='border-radius:10rpx'><input class='h5 padding-10' name='chuanhao'  bindinput='ChuanHao' placeholder='请输入串码'></input></view>
+</view>
+</form> -->
+
 <navigator url='/pages/evaluation/evaluation?id={{options.id}}&price={{totalprice}}&anwser={{anwser}}' hidden='{{da<timu.length}}' wx:if="{{totalprice>=0}}"  class='height-100 bg  flex-row flex-column' style='line-height:100rpx'>查看定价</navigator>
 
-<navigator   class='height-100 bg-gray  flex-row flex-column' style='line-height:100rpx'  wx:if="{{totalprice<0}}">拒绝收机</navigator>
+<navigator  class='height-100 bg-gray  flex-row flex-column' style='line-height:100rpx'  wx:if="{{totalprice<0}}">拒绝收机</navigator>

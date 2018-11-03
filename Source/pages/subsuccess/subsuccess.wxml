@@ -8,7 +8,7 @@
     <image class='icon-75' src='{{uploadpath}}resource/{{res.Y_icon}}'></image>
   </view>
   <view class=' flex-row flex-center margin-top'>
-    <view class='txt-black'>订单提交成功</view>
+    <view class='txt-black'>订单提交成功,预估价为</view>
     <view class='margin-left-10'>{{price}} 元</view>
   </view>
   <!-- <view class=' flex-row flex-center margin-top'>
@@ -23,10 +23,22 @@
   <view class='txt-black h5 '>回收须知</view>
 </view>
 <view class='flex-row flex-center margin-top'>
-  <view class='flex-1 flex-row flex-column '>
+  <view class='flex-1 flex-row flex-column ' hidden='{{transactionmode!="Y"}}'>
     <image class=' icon-40' src='{{uploadpath}}resource/{{res.id_card}}'></image>
     <view class='h5'>请准备好</view>
     <view class='h5'>身份证</view>
+  </view>
+
+  <view class='flex-1 flex-row flex-column ' hidden='{{transactionmode!="Z"}}'>
+    <image class=' icon-40' src='{{uploadpath}}resource/{{res.id_card}}'></image>
+    <view class='h5'>请准备好</view>
+    <view class='h5'>身份证</view>
+  </view>
+
+  <view class='flex-1 flex-row flex-column ' hidden='{{transactionmode!="X"}}'>
+    <image class=' icon-40' src='{{uploadpath}}resource/{{res.id_card}}'></image>
+    <view class='h5'>请准备身份证</view>
+    <view class='h5'>复印件</view>
   </view>
 
   <view class='flex-1 flex-row flex-column '>

@@ -21,14 +21,21 @@ class Content extends AppBase {
     if(this.Base.options.newphone!=undefined){
       json.newphone="Y";
     }
-    phoneapi.brand(json, (brand) => {
+    phoneapi.brand({ json, orderby: " r_main.seq"}, (brand) => {
       this.Base.setMyData({ brand });
     });
-    phoneapi.model(json, (model) => {
+    phoneapi.model({ json,orderby: " r_main.seq"}, (model) => {
       this.Base.setMyData({ model });
     });
+    
+  }
+  setPageTitle(instinfo) {
+    var title = "旧机回收";
+    if (this.options.newphone != undefined) {
+      title= "新机回收";
+    }
     wx.setNavigationBarTitle({
-      title: "旧机回收",
+      title: title,
     })
   }
   brandtap(e){

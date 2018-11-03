@@ -13,7 +13,8 @@ class Content extends AppBase {
     
     super.onLoad(options);
     this.Base.setMyData({
-price:this.Base.options.price
+      price:this.Base.options.price,
+      transactionmode: this.Base.options.transactionmode
     });
   }
   onMyShow() {

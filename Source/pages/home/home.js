@@ -21,7 +21,7 @@ class Content extends AppBase {
       this.Base.setMyData({ indexbanner });
     });
     var phoneapi = new PhoneApi();
-    phoneapi.tuijian("id", (tuijian) => {
+    phoneapi.tuijian({ orderby: " r_main.seq"}, (tuijian) => {
       this.Base.setMyData({ tuijian });
     });
   }
@@ -48,7 +48,14 @@ class Content extends AppBase {
       confirmColor: "#2699EC"
     });
   }
-} 
+   bindtoproblem(e){
+     var id = e.currentTarget.id;
+     console.log(id)
+     wx.navigateTo({
+       url: '/pages/problem/problem?id=' + id,
+     })
+  }
+}
 var markers=[];
 var mapCtx = null;
 var content = new Content();
@@ -58,4 +65,5 @@ body.onMyShow = content.onMyShow;
 body.stopTouchMove = content.stopTouchMove; 
 body.bindtipsnew = content.bindtipsnew;
 body.bindtipsold = content.bindtipsold;
+body.bindtoproblem = content.bindtoproblem;
 Page(body)

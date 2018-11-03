@@ -3,7 +3,7 @@
 <view class='flex-row column padding-30'>
   <view class='h4 txt-black margin-left-10'>{{modelinfo.model_name}}</view>
   <view class='Top  flex-row flex-center'>
-    <view class='flex-3 flex-row '>
+    <view class='flex-3 flex-row'>
       <view class='txt-bold font-120 txt-black'>{{price}}</view>
       <view class='txt-bold padding-top-70 margin-left-10 txt-black'>元</view>
     </view>
@@ -29,9 +29,10 @@
       </navigator>
   </view>
 
-  <view class='{{s1==1?"":"hide"}}'>
+  <view class=''>
     <view class='head flex-row flex-center '>
-      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' name='city_name' bindinput='bindcity' placeholder='请输入城市名'></input>
+      <!-- <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' name='city_name' bindinput='bindcity' placeholder='请输入城市名'></input> -->
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' name='city_name' bindinput='bindcity' placeholder='{{myaddress.city}}{{myaddress.district}}' value='{{myaddress.city}}{{myaddress.district}}'></input>
       <!-- <navigator class='txt-blue margin-top-10 h6'>更改</navigator> -->
     </view>
     <!-- <view class='head flex-row flex-center' bindtap='addAddress'>
@@ -74,11 +75,6 @@
 </view>
 <button  form-type='submit' class='height-100 bg  flex-row flex-column {{show==true?"":"hide"}}' bindtap='bindsubmit' style='line-height:100rpx'>立即回收</button>
 </form>
-
-
-
-
-
 
 
 <view class='{{hide==true?"":"hide"}}'>
@@ -140,8 +136,9 @@
 <view class="section">
   <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{subwayindex}}" range="{{subwayarr}}">
     <view class="picker">
-      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' disabled='' maxlength='30' placeholder='请选择地铁站' value='{{subwayarr[0][subwayindex[0]]}}{{subwayarr[1][subwayindex[1]]}}'></input>
-    </view>
+      <input class='flex-1 margin-top-10 h5 padding-left-10 txt-black' disabled='true' maxlength='30' placeholder='请选择地铁站' value='{{zhandian}}'></input>
+
+      </view>
   </picker>
 </view>
     </view>
@@ -172,4 +169,3 @@
 </form>
 
 </view>
-

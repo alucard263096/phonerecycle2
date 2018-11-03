@@ -11,6 +11,9 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    this.Base.setMyData({
+      open: 2
+    })
   }
   onMyShow() {
     var that = this;
@@ -18,9 +21,29 @@ class Content extends AppBase {
       title: "个人中心",
     })
   }
+
+  // bindclosedetails(e) {
+  //   this.Base.setMyData({
+  //     open: 2
+  //   })
+  // }
+
+  btnopendetails() {
+    wx.showActionSheet({
+      itemList: ['A', 'B', 'C'],
+      success: function (res) {
+        console.log(res.tapIndex)
+      },
+      fail: function (res) {
+        console.log(res.errMsg)
+      }
+    })
+  }
 }
 var content = new Content();
 var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
+body.btnopendetails = content.btnopendetails;
+body.bindclosedetails = content.bindclosedetails;
 Page(body)

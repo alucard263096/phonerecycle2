@@ -20,40 +20,78 @@ class Content extends AppBase {
       title: "我的订单",
     })
     var phoneapi = new PhoneApi();
-    phoneapi.orderlist({status:"A"}, (orderlist) => {
+    phoneapi.orderlist({ status: "A", orderby:" r_main.id desc"  }, (orderlist) => {
       this.Base.setMyData({ orderlist });
     });
-    phoneapi.orderlist({ status: "B" }, (orderlistB) => {
-      this.Base.setMyData({ orderlistB });
+    phoneapi.orderlist({ status: "S", orderby: " r_main.id desc" }, (orderlistS) => {
+      this.Base.setMyData({ orderlistS });
     });
-    phoneapi.orderlist({ status: "C" }, (orderlistC) => {
+    phoneapi.orderlist({ status: "C", orderby: " r_main.id desc"}, (orderlistC) => {
       this.Base.setMyData({ orderlistC });
     });
+    phoneapi.orderlist({ status: "W", orderby: " r_main.id desc" }, (orderlistW) => {
+      this.Base.setMyData({ orderlistW });
+    });
+    
   }
   bindsuccess(e){
    this.Base.setMyData({
-     s1:1,s2:1,s3:1
+     s1:1,s2:1,s3:1,s4:1
    })
+  }
+  bindwaitfirm(e) {
+    this.Base.setMyData({
+      s1: 4, s2: 4, s3: 4, s4: 4
+    })
   }
   bindwait(e) {
     this.Base.setMyData({
-      s1:2,s2:2,s3:2
+      s1: 2, s2: 2, s3: 2, s4: 2
     })
   }
   bindcancel(e) {
     this.Base.setMyData({
-      s1: 3, s2: 3, s3: 3
+      s1: 3, s2: 3, s3: 3, s4: 3
     })
   }
-  cancelorder(e){
+  
+  cancleorder(e){
     var that =this;
+    console.log(e);
     var phoneapi = new PhoneApi();
-    phoneapi.cancleorder("id", (cancleorder) => {
-      this.Base.setMyData({ 
-        status: "C"
+    var id =e.currentTarget.id;
+    phoneapi.cancleorder({id:id}, (cancleorder) => {
+      this.Base.setMyData({
+        status:"C"
        });
+      this.onMyShow();
     });
   }
+   bindclosewait(e){
+     var that = this;
+     console.log(e);
+     var phoneapi = new PhoneApi();
+     var id = e.currentTarget.id;
+     phoneapi.cancleorder({ id: id }, (cancleorder) => {
+       this.Base.setMyData({
+         status: "C"
+       });
+       this.onMyShow();
+     });
+   }
+  bindordersuccess(e){
+    var that = this;
+    console.log(e);
+    var phoneapi = new PhoneApi();
+    var id = e.currentTarget.id;
+    phoneapi.addsuccess({ id: id }, (addsuccess) => {
+      this.Base.setMyData({
+        status: "S"
+      });
+      this.onMyShow();
+    });
+  }
+
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -62,5 +100,8 @@ body.onMyShow = content.onMyShow;
 body.bindsuccess = content.bindsuccess;
 body.bindwait = content.bindwait;
 body.bindcancel = content.bindcancel; 
-body.cancelorder = content.cancelorder;
+body.cancleorder = content.cancleorder; 
+body.bindwaitfirm = content.bindwaitfirm; 
+body.bindclosewait = content.bindclosewait; 
+body.bindordersuccess = content.bindordersuccess;
 Page(body)

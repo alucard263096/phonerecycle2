@@ -2,6 +2,8 @@
 <view class='bg-primary padding-30 txt-white h5'>
   注：红色标题项为必选项，其他为可选项
 </view>
+
+<form bindsubmit="confirm" bindreset="formReset" report-submit="{{true}}">
 <view class='flex-row column padding-20'>
 
   <view class='flex-row flex-center'>
@@ -11,7 +13,7 @@
     <view class='flex-1 margin-20 border padding-10'>
       <picker bindchange='bindbrand' range='{{brand}}' range-key=''>
         <view class='flex-row flex-center'>
-          <input class='flex-1 h5 margin-left-10' disabled='true' placeholder='请选择品牌'></input>
+          <input class='flex-1 h5 margin-left-10' name='brand' bindinput='brand_input'  placeholder='请选择品牌'></input>
           <image class='felx-3 icon-15' src='{{uploadpath}}resource/{{res.bottom_icon}}'></image>
         </view>
       </picker>
@@ -25,7 +27,7 @@
     <view class='flex-1 margin-20 border padding-10'>
       <picker>
         <view class='flex-row flex-center'>
-          <input class='flex-1 h5 margin-left-10' placeholder='请选择型号'></input>
+          <input class='flex-1 h5 margin-left-10' name='model' bindinput='model_input' placeholder='请选择型号'></input>
           <image class='felx-3 icon-15' src='{{uploadpath}}resource/{{res.bottom_icon}}'></image>
         </view>
       </picker>
@@ -38,7 +40,7 @@
     </view>
     <view class='flex-1 margin-20 border padding-10'>
       <view class='flex-row flex-center'>
-        <input class='flex-1 h5 margin-left-10' placeholder='请输入串号'></input>
+        <input class='flex-1 h5 margin-left-10' name='phonecolor' bindinput='color_input' placeholder='请输入颜色'></input>
         <image class='felx-3 icon-15' src=''></image>
       </view>
     </view>
@@ -50,68 +52,68 @@
     </view>
     <view class='flex-1 margin-20 border padding-10'>
       <view class='flex-row flex-center'>
-        <input class='flex-1 h5 margin-left-10' placeholder='请输入颜色'></input>
+        <input class='flex-1 h5 margin-left-10' name='memory' bindinput='memory_input' placeholder='请输入内存'></input>
         <image class='felx-3 icon-15' src=''></image>
       </view>
     </view>
   </view>
 
   <view class='flex-row flex-center'>
+    <view class=''>
+      <image class=' icon-15' src='{{uploadpath}}resource/{{res.zixuan_icon}}'></image>
+    </view>
+    <view class='flex-1 margin-20 border padding-10'>
+      <view class='flex-row flex-center'>
+        <input class='flex-1 h5 margin-left-10' name='price' type='number' bindinput='price_input' placeholder='请输入自估价'></input>
+        <image class='felx-3 icon-15' src=''></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='flex-row flex-center'>
+    <view class=''>
+      <image class=' icon-15' src='{{uploadpath}}resource/{{res.zixuan_icon}}'></image>
+    </view>
+    <view class='flex-1 margin-20 border padding-10'>
+      <view class='flex-row flex-center'>
+        <input class='flex-1 h5 margin-left-10' name='recoverynum' type='number' bindinput='recoverynum_input' placeholder='请输入回收数量'></input>
+        <image class='felx-3 icon-15' src=''></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='flex-row flex-center'>
+    <view class=''>
+      <image class=' icon-15' src='{{uploadpath}}resource/{{res.zixuan_icon}}'></image>
+    </view>
+    <view class='flex-1 margin-20 border padding-10'>
+      <view class='flex-row flex-center'>
+        <input class='flex-1 h5 margin-left-10' name='describe' bindinput='describe_input' placeholder='请输入其他问题描述'></input>
+        <image class='felx-3 icon-15' src=''></image>
+      </view>
+    </view>
+  </view>
+
+   <view class='flex-row flex-center'>
     <view class=''>
       <image class=' icon-15' src='{{uploadpath}}resource/{{res.bixuanfuhao_icon}}'></image>
     </view>
     <view class='flex-1 margin-20 border padding-10'>
       <view class='flex-row flex-center'>
-        <input class='flex-1 h5 margin-left-10' placeholder='请输入内存'></input>
+        <input class='flex-1 h5 margin-left-10' name='chuanhao'bindinput='chuanhao_input' placeholder='请输入串号'></input>
         <image class='felx-3 icon-15' src=''></image>
       </view>
     </view>
   </view>
 
-  <view class='flex-row flex-center'>
-    <view class=''>
-      <image class=' icon-15' src='{{uploadpath}}resource/{{res.zixuan_icon}}'></image>
-    </view>
-    <view class='flex-1 margin-20 border padding-10'>
-      <view class='flex-row flex-center'>
-        <input class='flex-1 h5 margin-left-10' placeholder='请输入回收数量'></input>
-        <image class='felx-3 icon-15' src=''></image>
-      </view>
-    </view>
-  </view>
-
-  <view class='flex-row flex-center'>
-    <view class=''>
-      <image class=' icon-15' src='{{uploadpath}}resource/{{res.zixuan_icon}}'></image>
-    </view>
-    <view class='flex-1 margin-20 border padding-10'>
-      <view class='flex-row flex-center'>
-        <input class='flex-1 h5 margin-left-10' placeholder='请输入其他问题描述'></input>
-        <image class='felx-3 icon-15' src=''></image>
-      </view>
-    </view>
-  </view>
-
-  <view class='flex-row flex-center'>
-    <view class=''>
-      <image class=' icon-15' src='{{uploadpath}}resource/{{res.zixuan_icon}}'></image>
-    </view>
-    <view class='flex-1 margin-20 border padding-10'>
-      <view class='flex-row flex-center'>
-        <input class='flex-1 h5 margin-left-10' placeholder='请输入自估价'></input>
-        <image class='felx-3 icon-15' src=''></image>
-      </view>
-    </view>
-  </view>
-
-  <view>
     <view class='h5 txt-black flex-row flex-center'>
       <view class='txt-black'>机型成色</view>
       <navigator url='/pages/jixingchengse/jixingchengse'>
         <image class='icon-15 padding-left-20' src='{{uploadpath}}resource/{{res.doubt}}'></image>
       </navigator>
     </view>
-    <checkbox-group bindchange="">
+
+    <checkbox-group name='checkbox' bindchange="">
       <label class="checkbox h5 ">
         <checkbox color='#2699EC' value="" checked="" />充新
         <checkbox color='#2699EC' value="" checked="" />靓机
@@ -122,6 +124,8 @@
         <checkbox color='#2699EC' value="" checked="" />内屏坏
       </label>
     </checkbox-group>
-  </view>
+    
 </view>
-<navigator url='' class='height-100 submit_btn  flex-row flex-column' style='line-height:100rpx'>立即下单</navigator>
+
+<button bindtap='btntoeva' form-type='submit' class='height-100 submit_btn  flex-row flex-column' style='line-height:100rpx'>立即下单</button>
+</form>

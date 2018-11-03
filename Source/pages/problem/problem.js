@@ -18,14 +18,14 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id = 391;
-    options.new = "Y";
+    //options.id = 3;
+    //options.new = "Y";
     super.onLoad(options);
+    
     this.Base.setMyData({ price: 0, minusprice: 0, totalprice: 0, answer: "", blockseq:-1});
-
     var phoneapi = new PhoneApi();
     phoneapi.timu({
-      model_id: this.Base.options.id
+      model_id: this.Base.options.id,
     }, (timu) => {
       var ntimu = [];
       for (var i = 0; i < timu.length; i++) {
@@ -48,16 +48,17 @@ class Content extends AppBase {
       })
     })
 
-
     phoneapi.modelinfo({id:this.Base.options.id},(info)=>{
       var price=0;
+      
       if(this.Base.options.new=='Y'){
         price = parseInt(info.pricenew);
+        
       }else{
-
         price = parseInt(info.priceold);
       }
       this.Base.setMyData({ price: price});
+      
     });
 
   }
@@ -83,8 +84,6 @@ class Content extends AppBase {
       da = seq + 1;
     }
     
-    
-
     timu[seq].xuanle = e.detail.value;
     this.Base.setMyData({
       timu,
@@ -121,6 +120,20 @@ class Content extends AppBase {
     var totalprice=price-minusprice;
     this.Base.setMyData({ minusprice: minusprice, totalprice: totalprice, anwser: anwser.join(","), blockseq:-1 });
   }
+  ChuanHao(e){
+    var chuanhao = e.detail.value;
+    console.log(chuanhao);
+    this.Base.setMyData({
+      chuanhao: e.detail.value
+    })
+  }
+  // confirm(e){
+  //   var data = e.detail.value;
+  //   if (data.chuanhao == "") {
+  //     this.Base.info("请输入串号");
+  //     return;
+  //   }
+  // }
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -129,4 +142,6 @@ body.onMyShow = content.onMyShow;
 body.bindtitle = content.bindtitle;
 body.bindradio = content.bindradio;
 body.updateprice=content.updateprice;
+// body.ChuanHao = content.ChuanHao; 
+// body.confirm = content.confirm; 
 Page(body)

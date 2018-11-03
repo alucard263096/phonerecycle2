@@ -20,7 +20,7 @@ class Content extends AppBase {
       title: "帮助中心",
     })
     var helpcenterapi = new HelpcenterApi();
-    helpcenterapi.helpcentercontent({}, (contentlist) => {
+    helpcenterapi.helpcentercontent({orderby:"r_main.id desc"}, (contentlist) => {
       this.Base.setMyData({ contentlist });
     });
   }

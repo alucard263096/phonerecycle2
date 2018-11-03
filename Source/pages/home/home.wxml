@@ -9,7 +9,7 @@
 
 <view>
   <swiper indicator-dots='true' autoplay='false' interval='3000' duration='500' circular='true' style='width:750rpx;height:350rpx;'>
-    <swiper-item wx:for="{{indexbanner}}" wx:key="k" catchtouchmove="stopTouchMove">
+    <swiper-item wx:for="{{indexbanner}}" wx:key="k" >
       <view>
         <image src='{{uploadpath}}indexbanner/{{item.img}}' style='width:750rpx;height:350rpx;' mode="aspectFill"></image>
       </view>
@@ -99,20 +99,18 @@
     <image class='icon-10 ' src='{{uploadpath}}resource/{{res.more}}'></image>
   </navigator>
 </view>
-
-<navigator url='/pages/details/details' class='flex-row flex-wrap ' style='margin-top:10rpx;'>
-  <view class=' phone   flex-row flex-center ma-{{idx%2}}' style='width:345rpx;height:210rpx;' wx:for="{{tuijian}}" wx:key="k" wx:for-index="idx">
-    <view class='padding-10'>
-      <view class='flex-row flex-center'>
-        <view class=''><image mode="aspectFit" class='icon' src='{{uploadpath}}tuijian/{{item.phone_img}}'></image></view>
-        <view class=' flex-row column margin-left-20'>
+<!-- url='/pages/problem/problem?model_id={{model_id}}' -->
+<view   class='flex-row flex-wrap '  style='margin-top:10rpx;'>
+  <view bindtap='bindtoproblem' id='{{item.model_id}}' class=' phone  flex-row flex-center ma-{{idx%2}} margin-top-20' style='width:345rpx;height:220rpx;' wx:for="{{tuijian}}" wx:key="k" wx:for-index="idx">
+      <view class='flex-row flex-center' >
+        <view class=''><image mode="aspectFit"  class='icon' src='{{uploadpath}}tuijian/{{item.phone_img}}'></image></view>
+        <view class='flex-1 flex-row column padding-left-20' >
           <view class='h5' style=''>{{item.name}}</view>
           <view class='h6 margin-top-5 txt-gray'>最高回收价</view>
           <view class='h5 margin-top-5 txt-red'>￥{{item.price}}</view>
         </view>
       </view>
-    </view>
   </view>
-</navigator>
+</view>
 
 <view class='height-70 '></view>

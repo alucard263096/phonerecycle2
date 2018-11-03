@@ -1,4 +1,4 @@
-// pages/jixingchengse/jixingchengse.js
+// pages/qualitytesting/qualitytesting.js
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
@@ -17,11 +17,11 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     wx.setNavigationBarTitle({
-      title: "机型成色",
+      title: "质检说明",
     })
     var helpcenterapi = new HelpcenterApi();
-    helpcenterapi.modelcondition({ orderby: " r_main.id "}, (modelcondition) => {
-      this.Base.setMyData({ modelcondition });
+    helpcenterapi.qualitytesting({ orderby:"r_main.id"}, (qualitytesting) => {
+      this.Base.setMyData({ qualitytesting });
     });
   }
 

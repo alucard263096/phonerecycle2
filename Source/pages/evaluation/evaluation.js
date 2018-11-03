@@ -21,8 +21,8 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      show: false,
-      hide: true
+      show: true,
+      hide: false
     });
     this.Base.setMyData({
       s3: 4
@@ -34,9 +34,14 @@ class Content extends AppBase {
     this.Base.setMyData({
       today: this.Base.util.FormatDate(new Date()),
       price: this.Base.options.price,
-      anwser: this.Base.options.anwser
+      anwser: this.Base.options.anwser,
+      color: this.Base.options.color, 
+      memory: this.Base.options.memory,
+      recoverynum: this.Base.options.recoverynum,
+      describe: this.Base.options.describe, 
+      ziguprice: this.Base.options.ziguprice
     });
-    console.log(options.id);
+    
   }
   onMyShow() {
     var that = this;
@@ -195,7 +200,8 @@ class Content extends AppBase {
     }
 
     var myaddress = this.Base.getMyData().myaddress;
-    var citys = this.Base.getMyData().citys;
+    var city = myaddress.city;
+    var district = myaddress.district;
     var country = this.Base.getMyData().country;
     var mobile = this.Base.getMyData().mobile;
     var modelinfo = this.Base.getMyData().modelinfo;
@@ -204,23 +210,29 @@ class Content extends AppBase {
     var waybillnum = this.Base.getMyData().waybillnum;
     var price = this.Base.getMyData().price;
     var anwser = this.Base.getMyData().anwser;
+    var color = this.Base.getMyData().color;
+    var memory = this.Base.getMyData().memory;
+    var recoverynum = this.Base.getMyData().recoverynum;
+    var describe = this.Base.getMyData().chuanhao;
+    var ziguprice = this.Base.getMyData().ziguprice;
     var that = this;
     var phoneapi = new PhoneApi();
     phoneapi.order({
-      city: citys,
-      transactionmode: "自行邮寄",
+      city: city,
+      transactionmode: "X",
       brand_model_name: modelinfo.model_name,
-      country: country,
+      country: district,
       mobile: mobile,
       address: address,
       price: price,
-      status: "A",
+      serialnum:chuanhao,
       answer: anwser,
+      status: "A",
       username: name,
       waybillnum: waybillnum
     }, (order) => {
       wx.reLaunch({
-        url: '/pages/subsuccess/subsuccess?price=' + this.Base.options.price,
+        url: '/pages/subsuccess/subsuccess?transactionmode=X&price=' + this.Base.options.price,
       });
     });
   }
@@ -249,24 +261,30 @@ class Content extends AppBase {
     var district = myaddress.district;
     //var city = this.Base.getMyData().city;
     //var country = this.Base.getMyData().country;
+    var modelinfo = this.Base.getMyData().modelinfo;
     var mobile = this.Base.getMyData().mobile;
     var address = this.Base.getMyData().address;
     var date = this.Base.getMyData().date;
+    var price = this.Base.getMyData().price;
+    var chuanhao = this.Base.getMyData().chuanhao;
+    var anwser = this.Base.getMyData().anwser;
     var that = this;
     var phoneapi = new PhoneApi();
     phoneapi.order({
       city: city,
-      transactionmode: "上门回收",
+      transactionmode: "Y",
       country: district,
       mobile: mobile,
       address: address,
-      price: "3050",
+      brand_model_name: modelinfo.model_name,
+      price: price,
+      answer: anwser,
+      serialnum: chuanhao,
       status: "A",
-      answer: "题目",
       orderdate: date
     }, (order) => {
       wx.reLaunch({
-        url: '/pages/subsuccess/subsuccess',
+        url: '/pages/subsuccess/subsuccess?transactionmode=Y&price=' + this.Base.options.price
       });
     });
 
@@ -295,8 +313,10 @@ class Content extends AppBase {
     var city = myaddress.city;
     var mobile = this.Base.getMyData().mobile;
     var date = this.Base.getMyData().date;
-    var price = this.Base.getMyData().price; 
+    var price = this.Base.getMyData().price;
+    var modelinfo = this.Base.getMyData().modelinfo;
     var anwser = this.Base.getMyData().anwser;
+    var chuanhao = this.Base.getMyData().chuanhao;
     var zhandian = this.Base.getMyData().zhandian;
     console.log(zhandian);
 
@@ -304,16 +324,18 @@ class Content extends AppBase {
     var phoneapi = new PhoneApi();
     phoneapi.order({
       city: city,
-      transactionmode: "地铁取货",
+      transactionmode: "Z",
       mobile: mobile,
-      price: "3050",
+      brand_model_name: modelinfo.model_name,
+      price: price,
       status: "A",
-      answer: "题目",
+      answer: anwser,
+      serialnum: chuanhao,
       orderdate: date,
       zhandian: zhandian
     }, (order) => {
       wx.reLaunch({
-        url: '/pages/subsuccess/subsuccess',
+        url: '/pages/subsuccess/subsuccess?transactionmode=Z&price=' + this.Base.options.price
       })
     });
   }
@@ -330,117 +352,116 @@ class Content extends AppBase {
   // owncontactsubmit(e) {
   //   console.log(e);
 
-  // }
-  bindDateChange(e) {
-    this.setData({
-      date: e.detail.value
-    })
-  }
-  bindmobile(e) {
-    var mobile = e.detail.value;
-    console.log(mobile);
-    this.Base.setMyData({
-      mobile: e.detail.value
-    })
-  }
-  bindaddress(e) {
-    var address = e.detail.value;
-    console.log(address);
-    this.Base.setMyData({
-      address: e.detail.value
-    })
-  }
-  waybillnum(e) {
-    var waybillnum = e.detail.value;
-    console.log(waybillnum);
-    this.Base.setMyData({
-      waybillnum: e.detail.value
-    })
-  }
-  bindname(e) {
-    var name = e.detail.value;
-    console.log(name);
-    this.Base.setMyData({
-      name: e.detail.value
-    })
-  }
-  bindcity(e) {
-    var citys = e.detail.value;
-    console.log(citys);
-    this.Base.setMyData({
-      citys: e.detail.value
-    })
-  }
-  bindcountry(e) {
-    var country = e.detail.value;
-    console.log(country);
-    this.Base.setMyData({
-      country: e.detail.value
-    })
-  }
-  expresstocity(e) {
-    var city = e.detail.value;
-    console.log(city);
-    this.Base.setMyData({
-      city: e.detail.value
-    })
-  }
-  expresstocountry(e) {
-    var country = e.detail.value;
-    console.log(country);
-    this.Base.setMyData({
-      country: e.detail.value
-    })
-  }
-  expressto(e) {
-    var address = e.detail.value;
-    console.log(address);
-    this.Base.setMyData({
-      address: e.detail.value
-    })
-  }
-  expresstomobile(e) {
-    var mobile = e.detail.value;
-    console.log(mobile);
-    this.Base.setMyData({
-      mobile: e.detail.value
-    })
-  }
-  expresstodate(e) {
-    var date = e.detail.value;
-    console.log(date);
-    this.Base.setMyData({
-      date: e.detail.value
-    })
-  }
-  subwaytradedate(e) {
-    var date = e.detail.value;
-    console.log(date);
-    this.Base.setMyData({
-      date: e.detail.value
-    })
-  }
-  bindMultiPickerChange(e){
-    var i = e.detail.value[0];
-    var j = e.detail.value[1];
+bindDateChange(e) {
+  this.setData({
+    date: e.detail.value
+  })
+}
+bindmobile(e) {
+  var mobile = e.detail.value;
+  console.log(mobile);
+  this.Base.setMyData({
+    mobile: e.detail.value
+  })
+}
+bindaddress(e) {
+  var address = e.detail.value;
+  console.log(address);
+  this.Base.setMyData({
+    address: e.detail.value
+  })
+}
+waybillnum(e) {
+  var waybillnum = e.detail.value;
+  console.log(waybillnum);
+  this.Base.setMyData({
+    waybillnum: e.detail.value
+  })
+}
+bindname(e) {
+  var name = e.detail.value;
+  console.log(name);
+  this.Base.setMyData({
+    name: e.detail.value
+  })
+}
+bindcity(e) {
+  var citys = e.detail.value;
+  console.log(citys);
+  this.Base.setMyData({
+    citys: e.detail.value
+  })
+}
+bindcountry(e) {
+  var country = e.detail.value;
+  console.log(country);
+  this.Base.setMyData({
+    country: e.detail.value
+  })
+}
+expresstocity(e) {
+  var city = e.detail.value;
+  console.log(city);
+  this.Base.setMyData({
+    city: e.detail.value
+  })
+}
+expresstocountry(e) {
+  var country = e.detail.value;
+  console.log(country);
+  this.Base.setMyData({
+    country: e.detail.value
+  })
+}
+expressto(e) {
+  var address = e.detail.value;
+  console.log(address);
+  this.Base.setMyData({
+    address: e.detail.value
+  })
+}
+expresstomobile(e) {
+  var mobile = e.detail.value;
+  console.log(mobile);
+  this.Base.setMyData({
+    mobile: e.detail.value
+  })
+}
+expresstodate(e) {
+  var date = e.detail.value;
+  console.log(date);
+  this.Base.setMyData({
+    date: e.detail.value
+  })
+}
+subwaytradedate(e) {
+  var date = e.detail.value;
+  console.log(date);
+  this.Base.setMyData({
+    date: e.detail.value
+  })
+}
+bindMultiPickerChange(e){
+  var i = e.detail.value[0];
+  var j = e.detail.value[1];
+  var subway = this.Base.getMyData().subway;
+  this.Base.setMyData({ zhandian: subway[i].xianlu + subway[i].stationlist[j].zhandian });
+}
+bindMultiPickerColumnChange(e) {
+  console.log(e);
+  if (e.detail.column == 0) {
+    var i = e.detail.value;
+    //console.log(i);
+    var subwayarr = this.Base.getMyData().subwayarr;
     var subway = this.Base.getMyData().subway;
-    this.Base.setMyData({ zhandian: subway[i].xianlu + subway[i].stationlist[j].zhandian});
-  }
-  bindMultiPickerColumnChange(e) {
-    console.log(e);
-    if (e.detail.column==0){
-      var i = e.detail.value;
-      //console.log(i);
-      var subwayarr = this.Base.getMyData().subwayarr;
-      var subway = this.Base.getMyData().subway;
-      subwayarr[1]=[];
-      for (var j = 0; j < subway[i].stationlist.length; j++) {
-        //console.log(subway[i].stationlist[j].zhandian);
-        subwayarr[1].push(subway[i].stationlist[j].zhandian);
-      }
-      this.Base.setMyData({ subwayarr});
+    subwayarr[1] = [];
+    for (var j = 0; j < subway[i].stationlist.length; j++) {
+      //console.log(subway[i].stationlist[j].zhandian);
+      subwayarr[1].push(subway[i].stationlist[j].zhandian);
     }
-  } 
+    this.Base.setMyData({ subwayarr });
+  }
+} 
 }
 var content = new Content();
 var body = content.generateBodyJson();
@@ -473,7 +494,7 @@ body.expresstomobile = content.expresstomobile;
 body.bindDateChange = content.bindDateChange;
 body.expresstodate = content.expresstodate;
 body.waybillnum = content.waybillnum;
-body.subwaytradedate = content.subwaytradedate; 
+body.subwaytradedate = content.subwaytradedate;
 body.bindtishi = content.bindtishi;
 body.confirm = content.confirm;
 body.expresstoconfirm = content.expresstoconfirm;
