@@ -1,10 +1,10 @@
 {
   "pages":[
     "pages/home/home",
-    "pages/selectmodel/selectmodel",
     "pages/fastrecovery/fastrecovery",
-    "pages/problem/problem",
     "pages/myorder/myorder",
+    "pages/selectmodel/selectmodel",
+    "pages/problem/problem",
     "pages/mine/mine",
     "pages/qualitytesting/qualitytesting",
     "pages/aboutus/aboutus",

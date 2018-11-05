@@ -83,9 +83,10 @@ class Content extends AppBase {
       this.Base.setMyData({
         status: "S"
       });
-      wx.reLaunch({
-        url: '/pages/myorder/myorder',
-      })
+      // wx.reLaunch({
+      //   url: '/pages/myorder/myorder',
+      // })
+      this.onMyShow();
     });
   }
   cancleorder(e){
@@ -95,9 +96,10 @@ class Content extends AppBase {
       this.Base.setMyData({
         status: "C"
       });
-      wx.reLaunch({
-        url: '/pages/myorder/myorder',
-      })
+      // wx.reLaunch({
+      //   url: '/pages/myorder/myorder',
+      // })
+      this.onMyShow();
     });
   
   }

@@ -224,6 +224,7 @@ class Content extends AppBase {
       address: address,
       price: price,
       chuanhao:chuanhao,
+      recoverynum:recoverynum,
       answer: anwser,
       status: "A",
       username: name,

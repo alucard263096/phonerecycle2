@@ -16,8 +16,8 @@
 
   <navigator url='/pages/orderdetails/orderdetails?id={{item.id}}' class='border_t padding-20'>
     <view class='padding-left-10 flex-row flex-center'>
-      <view class='icon-60 flex-row flex-column ' style='border:1rpx solid #ececec'>
-        <image mode="aspectFit" class='icon-50 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+      <view class='icon-75 flex-row flex-column ' style='border:1rpx solid #ececec'>
+        <image mode="aspectFit" class='icon-60 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
       </view>
 
       <view class='flex-row column padding-left-30'>
@@ -25,11 +25,20 @@
         
         <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' style='width:80rpx;border-radius:5rpx;'>{{item.transactionmode_name}}</view>
 
-        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
+        <!-- <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
 
-        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view> -->
 
-        <view class='flex-1 h6 padding-10'>￥{{item.price}}</view>
+        <view class='flex-1 padding-10'>
+        <view class='flex-1 flex-row flex-center padding-top-10'>
+        <view class='h6'>预估价：</view>
+        <view class=' h6 '>￥{{item.price}}</view>
+        </view>
+        <view class='flex-1 flex-row flex-center padding-top-10'>
+        <view class='h6'>最终价：</view>
+        <view class=' h6 txt-primary'>等待报价...</view>
+        </view>
+       </view>
       </view>
 
     </view>
@@ -51,15 +60,24 @@
 
   <navigator url='/pages/orderdetails/orderdetails?id={{item.id}}' class='border_t padding-20'>
     <view class='padding-left-10 flex-row flex-center'>
-      <view class='icon-60 flex-row flex-column ' style='border:1rpx solid #ececec'>
-        <image mode="aspectFit" class='icon-50 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+      <view class='icon-75 flex-row flex-column ' style='border:1rpx solid #ececec'>
+        <image mode="aspectFit" class='icon-60 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
       </view>
       <view class='flex-row column padding-left-30'>
         <view class='h5 txt-black flex-1 padding-10'>{{item.brand_model_name}}</view>
         <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' style='width:80rpx;border-radius:5rpx;'>{{item.transactionmode_name}}</view>
-        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
-        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view>
-        <view class='flex-1 h6 padding-10'>￥{{item.price}}</view>
+        <!-- <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view> -->
+        <view class='flex-1 padding-10'>
+        <view class='flex-1 flex-row flex-center padding-top-10'>
+        <view class='h6'>预估价：</view>
+        <view class=' h6 '>￥{{item.price}}</view>
+        </view>
+        <view class='flex-1 flex-row flex-center padding-top-10'>
+        <view class='h6'>最终价：</view>
+        <view class=' h6 '>￥{{item.finallyprice}}</view>
+        </view>
+       </view>
       </view>
     </view>
   </navigator>
@@ -80,15 +98,25 @@
 
   <navigator url='/pages/orderdetails/orderdetails?id={{item.id}}' class='border_t padding-20'>
     <view class='padding-left-10 flex-row flex-center'>
-      <view class='icon-60 flex-row flex-column ' style='border:1rpx solid #ececec'>
-        <image mode="aspectFit" class='icon-50 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+      <view class='icon-75 flex-row flex-column ' style='border:1rpx solid #ececec'>
+        <image mode="aspectFit" class='icon-60 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
       </view>
       <view class='flex-row column padding-left-30'>
         <view class='h5 txt-black flex-1 padding-10'>{{item.brand_model_name}}</view>
         <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' style='width:80rpx;border-radius:5rpx;'>{{item.transactionmode_name}}</view>
-        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
-        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view>
-        <view class='flex-1 h6 padding-10'>￥{{item.price}}</view>
+        <!-- <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view> -->
+       <view class='flex-1 padding-10'>
+        <view class='flex-1 flex-row flex-center padding-top-10'>
+        <view class='h6'>预估价：</view>
+        <view class=' h6 '>￥{{item.price}}</view>
+        </view>
+        <view class='flex-1 flex-row flex-center padding-top-10'>
+        <view class='h6'>最终价：</view>
+        <view class=' h6 '>￥{{item.finallyprice}}</view>
+        </view>
+       </view>
+
       </view>
     </view>
   </navigator>
@@ -109,15 +137,24 @@
 
   <navigator url='/pages/orderdetails/orderdetails?id={{item.id}}' class='border_t padding-20'>
     <view class='padding-left-10 flex-row flex-center'>
-      <view class='icon-60 flex-row flex-column ' style='border:1rpx solid #ececec'>
-        <image mode="aspectFit" class='icon-50 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+      <view class='icon-75 flex-row flex-column ' style='border:1rpx solid #ececec'>
+        <image mode="aspectFit" class='icon-60 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
       </view>
       <view class='flex-row column padding-left-30'>
         <view class='h5 txt-black flex-1 padding-10'>{{item.brand_model_name}}</view>
         <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' style='width:80rpx;border-radius:5rpx;'>{{item.transactionmode_name}}</view>
-        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
-        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view>
-        <view class='flex-1 h6 padding-10'>￥{{item.price}}</view>
+        <!-- <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>邮寄回收</view>
+        <view class='flex-1 h7 bg-primary padding-5 txt-white margin-left-10' hidden='true' style='width:80rpx;border-radius:5rpx;'>地铁取货</view> -->
+        <view class='flex-1 padding-10'>
+        <view class='flex-1 flex-row flex-center padding-top-10'>
+        <view class='h6'>预估价：</view>
+        <view class=' h6 '>￥{{item.price}}</view>
+        </view>
+        <view class='flex-1 flex-row flex-center padding-top-10'>
+        <view class='h6'>最终价：</view>
+        <view class=' h6 '>￥{{item.finallyprice}}</view>
+        </view>
+       </view>
       </view>
     </view>
   </navigator>

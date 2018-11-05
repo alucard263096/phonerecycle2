@@ -19,6 +19,15 @@ class Content extends AppBase {
     phoneapi.model({}, (model) => {
       this.Base.setMyData({ model });
     });
+
+    var condition = ["充新", "靓机",
+      "屏靓支架靓", "屏小花壳靓", "屏花", "触摸破",
+      "内屏坏"
+    ];
+    var condition_val = ["1", "2", "3", "4", "5", "6", "7"];
+    this.Base.setMyData({
+      condition_val, condition
+    });
   }
   onMyShow() {
     var that = this;
@@ -39,6 +48,7 @@ class Content extends AppBase {
       this.Base.setMyData({ brand });
     });
   }
+  
   confirm(e) {
     console.log(e);
     var data = e.detail.value;
@@ -72,12 +82,11 @@ class Content extends AppBase {
     if (data.memory != "") {
       anwser.push("内存：" + data.memory);
     }
-    if(data.checkbox.length>0){
+    if (data.condition!=""){
 
-      anwser.push("机型成色：" + data.checkbox.join(" "));
+      anwser.push("机型成色：" + data.condition);
     }
     
-
     url += "&anwser=" + anwser.join(",");
     url += "&chuanhao=" + data.chuanhao;
     url += "&describe=" + data.describe;
@@ -146,6 +155,19 @@ class Content extends AppBase {
       brand: e.detail.value
     })
   }
+condition_input(e) {
+  var condition = e.detail.value;
+  console.log(condition);
+    this.Base.setMyData({
+      condition: e.detail.value
+    })
+  } 
+  bindcondition(e){
+    console.log(e);
+    this.Base.setMyData({
+      cdt: e.detail.value
+    });
+  }
   model_input(e) {
     var model = e.detail.value;
     console.log(model);
@@ -211,5 +233,7 @@ body.memory_input = content.memory_input;
 body.color_input = content.color_input;
 body.chuanhao_input = content.chuanhao_input;
 body.model_input = content.model_input;
-body.brand_input = content.brand_input;
+body.brand_input = content.brand_input; 
+body.bindcondition = content.bindcondition; 
+body.condition_input = content.condition_input;
 Page(body)

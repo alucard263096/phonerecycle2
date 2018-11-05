@@ -18,10 +18,10 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id = 3;
+    //options.id = 12;
     //options.new = "Y";
     super.onLoad(options);
-    
+    console.log(options.id);
     this.Base.setMyData({ price: 0, minusprice: 0, totalprice: 0, answer: "", blockseq:-1});
     var phoneapi = new PhoneApi();
     phoneapi.timu({
@@ -46,6 +46,9 @@ class Content extends AppBase {
         timu: ntimu,
         da: 0
       })
+    });
+    phoneapi.modelinfo({id:this.options.id},(modelinfo)=>{
+      this.Base.setMyData({ modelinfo})
     })
 
     phoneapi.modelinfo({id:this.Base.options.id},(info)=>{
@@ -83,7 +86,6 @@ class Content extends AppBase {
     if (seq >= da) {
       da = seq + 1;
     }
-    
     timu[seq].xuanle = e.detail.value;
     this.Base.setMyData({
       timu,
@@ -127,11 +129,18 @@ class Content extends AppBase {
     var totalprice=price-minusprice;
     this.Base.setMyData({ price: price, minusprice: minusprice, totalprice: totalprice, anwser: anwser.join(","), blockseq:-1 });
   }
-  ChuanHao(e){
-    var chuanhao = e.detail.value;
-    console.log(chuanhao);
+  Neicun(e){
+    var neicun = e.detail.value;
+    console.log(neicun);
     this.Base.setMyData({
-      chuanhao: e.detail.value
+      neicun: e.detail.value
+    })
+  }
+  Color(e) {
+    var color = e.detail.value;
+    console.log(color);
+    this.Base.setMyData({
+      color: e.detail.value
     })
   }
   // confirm(e){
@@ -149,6 +158,6 @@ body.onMyShow = content.onMyShow;
 body.bindtitle = content.bindtitle;
 body.bindradio = content.bindradio;
 body.updateprice=content.updateprice;
-// body.ChuanHao = content.ChuanHao; 
-// body.confirm = content.confirm; 
+body.Neicun = content.Neicun; 
+body.Color = content.Color; 
 Page(body)

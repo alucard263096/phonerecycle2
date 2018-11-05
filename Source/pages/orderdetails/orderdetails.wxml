@@ -19,7 +19,7 @@
         <view class='flex-row column padding-left-30'>
           <view class='h5 txt-black flex-1 padding-10'>{{orderinfo.brand_model_name}}</view>
           <view class='flex-1 h6 txt-primary padding-10' bindtap='btnopendetails'>
-          <text class='h6 txt-gray'>{{orderinfo.anwserline}}</text>
+          <text class='h6 txt-primary'>商品详情</text>
           </view>
         </view>
       </view>
@@ -79,7 +79,7 @@
         <view class='flex-row column padding-left-30'>
           <view class='h5 txt-black flex-1 padding-10'>{{orderinfo.brand_model_name}}</view>
 
-          <view class='flex-1 h6 txt-primary padding-10' bindtap='btnopendetails'><text class='h6 txt-gray'>{{orderinfo.anwserline}}</text></view>
+          <view class='flex-1 h6 txt-primary padding-10' bindtap='btnopendetails'><text class='h6 txt-primary'>商品详情</text></view>
         </view>
       </view>
     </view>
@@ -138,7 +138,7 @@
 
     <view class='flex-row flex-center margin-bottom-10'>
       <view class='h5'>联系地址：</view>
-      <view class='h5'>{{orderinfo.city}}{{orderinfo.address}}</view>
+      <view class='h5'>{{orderinfo.city}}{{orderinfo.country}}{{orderinfo.address}}{{orderinfo.zhandian}}</view>
     </view>
 
   </view>
@@ -146,14 +146,14 @@
 
   <view class='bg-white margin-top-20'>
     <view class='txt-bold txt-black h5 padding-40' style='border-bottom:1rpx solid #ececec'>商品信息</view>
-    <view class='padding-20 border_b'>
+     <view class='padding-20 border_b'>
       <view class=' padding-left-10 flex-row flex-center'>
         <view class='icon-60 flex-row flex-column ' style='border:1rpx solid #ececec'>
           <image mode="aspectFit" class='icon-50 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
         </view>
         <view class='flex-row column padding-left-30'>
           <view class='h5 txt-black flex-1 padding-10'>{{orderinfo.brand_model_name}}</view>
-          <view class='flex-1 h6 txt-primary padding-10' bindtap='btnopendetails'><text class='h6 txt-gray'>{{orderinfo.anwserline}}</text></view>
+          <view class='flex-1 h6 txt-primary padding-10' bindtap='btnopendetails'><text class='h6 txt-primary'>商品详情</text></view>
         </view>
       </view>
     </view>
@@ -245,7 +245,7 @@
 
     <view class='flex-row flex-center margin-bottom-10'>
       <view class='h5'>联系地址：</view>
-      <view class='h5'>{{orderinfo.city}}{{orderinfo.address}}</view>
+      <view class='h5'>{{orderinfo.city}}{{orderinfo.country}}{{orderinfo.address}}{{orderinfo.zhandian}}</view>
     </view>
 
   </view>
@@ -260,7 +260,7 @@
         </view>
         <view class='flex-row column padding-left-30'>
           <view class='h5 txt-black flex-1 padding-10'>{{orderinfo.brand_model_name}}</view>
-          <view class='flex-1 h6 txt-primary padding-10' bindtap='btnopendetails'><text class='h6 txt-gray'>{{orderinfo.anwserline}}</text></view>
+          <view class='flex-1 h6 txt-primary padding-10' bindtap='btnopendetails'><text class='h6 txt-primary'>商品详情</text></view>
         </view>
       </view>
     </view>
@@ -330,17 +330,10 @@
 <view class='padding-20 txt-primary  topclose' bindtap='bindclosedetails' style='border-bottom:1rpx solid #ececec'>关闭</view>
 <scroll-view scroll-y='true' class='margin-top-80 ' >
 <view class=' flex-row flex-center'>
-<view class='flex-1 padding-20 h5 txt-gray'>试图</view>
-<view class='flex-1 padding-20  text-right h5 txt-black'>{{orderinfo.answer}}</view>
+<!-- <view class='flex-1 padding-20 h5 txt-gray'>试图</view> -->
+<view class=' padding-40  h5 txt-black'>{{orderinfo.answer}}</view>
 </view>
-<view class=' flex-row flex-center'>
-<view class='flex-1 padding-20 h5 txt-gray'>试图</view>
-<view class='flex-1 padding-20  text-right h5 txt-black'>{{orderinfo.answer}}</view>
-</view>
-<view class=' flex-row flex-center'>
-<view class='flex-1 padding-20 h5 txt-gray'>试图</view>
-<view class='flex-1 padding-20  text-right h5 txt-black'>{{orderinfo.answer}}</view>
-</view>
+
 
 </scroll-view>
 </view>

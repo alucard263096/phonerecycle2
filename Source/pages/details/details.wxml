@@ -9,6 +9,7 @@
 </view>
 
 <view class='flex-row' style=''>
+
 <scroll-view scroll-y='true' class='flex-1'  style='height:1104rpx;background-color:#f2f2f0;'>
 <view class='text-left flex-row column' style=''>
 <view class='padding-20  h5 {{s==0?"bg":""}}' bindtap='brandtap' id='0' >全部</view>
