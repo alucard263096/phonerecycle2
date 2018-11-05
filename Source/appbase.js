@@ -97,7 +97,8 @@ export class AppBase {
       dataReturn: base.dataReturn, 
       dataReturnCallback: base.dataReturnCallback, 
       loadtabtype: base.loadtabtype,
-      contactkefu: base.contactkefu, 
+      contactkefu: base.contactkefu,
+      contactweixin: base.contactweixin, 
       download: base.download
 
 
@@ -831,6 +832,23 @@ export class AppBase {
           console.log(img);
           wx.previewImage({
             urls: [img],
+          })
+        }
+      }
+    })
+  }
+  contactweixin() {
+    //wechatno
+    var instinfo = this.Base.getMyData().instinfo;
+    console.log(instinfo);
+    wx.showActionSheet({
+      itemList: [instinfo.wechatno, "一键复制"],
+      success(e) {
+        if (e.tapIndex == 0) {
+          
+        } else {
+          wx.setClipboardData({
+            data: instinfo.wechatno,
           })
         }
       }

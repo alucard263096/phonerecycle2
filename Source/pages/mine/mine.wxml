@@ -40,6 +40,11 @@
     <view class='flex-1 h4-5 padding-left-20'>联系客服</view>
     <image class='icon-15' src='{{uploadpath}}resource/{{res.right_icon}}'></image>
   </navigator>
+  <navigator bindtap='contactweixin' class='flex-row flex-center padding-40 border_bottom'>
+    <image class='icon-30' src='{{uploadpath}}resource/{{res.CCS_icon}}'></image>
+    <view class='flex-1 h4-5 padding-left-20'>微信号复制</view>
+    <image class='icon-15' src='{{uploadpath}}resource/{{res.right_icon}}'></image>
+  </navigator>
 
   <navigator url='/pages/aboutus/aboutus' class='flex-row flex-center padding-40 border_bottom'>
     <image class='icon-30' src='{{uploadpath}}resource/{{res.aboutus_icon}}'></image>
