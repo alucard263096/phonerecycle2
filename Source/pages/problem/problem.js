@@ -18,8 +18,8 @@ class Content extends AppBase {
   }
   onLoad(options) {
     this.Base.Page = this;
-    //options.id = 12;
-    //options.new = "Y";
+    options.id = 184;
+    options.new = "Y";
     super.onLoad(options);
     console.log(options.id);
     this.Base.setMyData({ price: 0, minusprice: 0, totalprice: 0, answer: "", blockseq:-1});
