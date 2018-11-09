@@ -21,11 +21,11 @@ class Content extends AppBase {
     if(this.Base.options.newphone!=undefined){
       json.newphone="Y";
     }
-    json.orderby="r_main.seq";
-    phoneapi.brand( json, (brand) => {
+    json.orderby =" r_main.seq ";
+    phoneapi.brand(json, (brand) => {
       this.Base.setMyData({ brand });
     });
-    phoneapi.model( json, (model) => {
+    phoneapi.model(json, (model) => {
       this.Base.setMyData({ model });
     });
     
