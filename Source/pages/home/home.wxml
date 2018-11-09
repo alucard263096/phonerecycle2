@@ -19,7 +19,7 @@
 
 <view class='Mid flex-row flex-center padding-20'>
   <navigator  class='mid1 flex-1 flex-row padding-15 margin-right-15'>
-    <navigator url='/pages/details/details?newphone=Y'><image class='icon-40 ' src='{{uploadpath}}resource/{{res.xinjihuishou}}'></image></navigator>
+    <navigator><image class='icon-40 ' src='{{uploadpath}}resource/{{res.xinjihuishou}}'></image></navigator>
     <navigator url='/pages/details/details?newphone=Y' class='h4 flex-1'>
       <view class='txt-white'>新机回收</view>
       <view class=' h6 txt-white'>最潮最新的手机</view>
