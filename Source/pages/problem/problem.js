@@ -55,9 +55,9 @@ class Content extends AppBase {
         if (info.brand_id == AppBase.BRANDAPPLE && this.Base.options.new != 'Y') {
           ntimu.push({
             name: "是否过保？",
-            xuanxiang: "过保\n没过保",
+            xuanxiang: "有保\n过保",
             priceopt: "0\n0",
-            options: ["过保", "没过保"],
+            options: [ "有保", "过保"],
             priceopt: [0, 0],
             xuanle: "",
             isapplyguobaocheck: true
@@ -120,9 +120,9 @@ class Content extends AppBase {
         var ntimu = [];
         ntimu.push({
           name: "是否过保？",
-          xuanxiang: "过保\n没过保",
+          xuanxiang: "有保\n过保",
           priceopt: "0\n0",
-          options: ["过保", "没过保"],
+          options: ["有保", "过保"],
           priceopt: [0, 0],
           xuanle: ist,
           isapplyguobaocheck: true
@@ -132,7 +132,7 @@ class Content extends AppBase {
           if (otimu[i].type == 'A' ||
             (this.Base.options.new == 'Y' && otimu[i].type == 'N') ||
             (this.Base.options.new != 'Y' && otimu[i].type == 'O')) {
-            if ((otimu[i].applybao_value=="Y"&&ist=="没过保")
+            if ((otimu[i].applybao_value=="Y"&&ist=="有保")
               || ((otimu[i].applybao_value != "Y" && ist == "过保"))){
               otimu[i].xuanle="";
               ntimu.push(otimu[i]);
