@@ -17,7 +17,8 @@
   <navigator url='/pages/orderdetails/orderdetails?id={{item.id}}' class='border_t padding-20'>
     <view class='padding-left-10 flex-row flex-center'>
       <view class='icon-75 flex-row flex-column ' style='border:1rpx solid #ececec'>
-        <image mode="aspectFit" class='icon-60 padding-top-10' src='{{uploadpath}}resource/{{res.shouji}}'></image>
+        <image mode="aspectFit" class='icon-60 padding-top-10' src='{{uploadpath}}inst/{{instinfo.logo}}'></image>
+        <!-- <image mode="aspectFit" class='icon-60 padding-top-10' src='{{uploadpath}}inst/{{instinfo.logo}}'></image> -->
       </view>
 
       <view class='flex-row column padding-left-30'>

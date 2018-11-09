@@ -14,9 +14,6 @@ Page{
   z-index: 1;
   width: 100%;
 }
-.prb{
-  
-}
 .prb_mid{
   border-radius: 10rpx;
   background-color: white;

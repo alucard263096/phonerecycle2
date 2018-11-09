@@ -18,16 +18,18 @@ class Content extends AppBase {
     // });
     phoneapi.model({}, (model) => {
       this.Base.setMyData({ model });
+    }); 
+    phoneapi.cdtoptionlist({ orderby: " r_main.seq"}, (cdtoptionlist) => {
+      this.Base.setMyData({ cdtoptionlist });
     });
-
-    var condition = ["充新", "靓机",
-      "屏靓支架靓", "屏小花壳靓", "屏花", "触摸破",
-      "内屏坏"
-    ];
-    var condition_val = ["1", "2", "3", "4", "5", "6", "7"];
-    this.Base.setMyData({
-      condition_val, condition
-    });
+    // var condition = ["充新", "靓机",
+    //   "屏靓支架靓", "屏小花壳靓", "屏花", "触摸破",
+    //   "内屏坏"
+    // ];
+    // var condition_val = ["1", "2", "3", "4", "5", "6", "7"];
+    // this.Base.setMyData({
+    //   condition_val, condition
+    // });
   }
   onMyShow() {
     var that = this;
@@ -162,11 +164,18 @@ condition_input(e) {
       condition: e.detail.value
     })
   } 
-  bindcondition(e){
-    console.log(e);
-    this.Base.setMyData({
-      cdt: e.detail.value
-    });
+  // bindcondition(e){
+  //   console.log(e);
+  //   this.Base.setMyData({
+  //     cdt: e.detail.value
+  //   });
+  // }
+  bindcondition(e) {
+    var cdtoptionlist = this.Base.getMyData().cdtoptionlist;
+    this.Base.setMyData({ 
+      cdt_idx: e.detail.value, 
+      cdt_id: cdtoptionlist[e.detail.value].id
+      });
   }
   model_input(e) {
     var model = e.detail.value;

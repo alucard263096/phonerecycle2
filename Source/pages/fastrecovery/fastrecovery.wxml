@@ -52,8 +52,8 @@
     </view>
     <view class='flex-1 margin-20 border padding-10'>
       <view class='flex-row flex-center'>
-        <input class='flex-1 h5 margin-left-10' name='memory' bindinput='memory_input' placeholder='请输入内存'></input>
-        <image class='felx-3 icon-15' src=''></image>
+        <input class=' h5 margin-left-10'  name='memory' maxlength='6'  bindinput='memory_input' placeholder='请输入内存(G)' ></input>
+        <view class='flex-1 ' src=''></view>
       </view>
     </view>
   </view>
@@ -114,9 +114,10 @@
     </view>
 
     <view class='padding-10 margin-20 border' > 
-    <picker bindchange='bindcondition' range='{{condition}}'> 
+    <picker bindchange='bindcondition' value='{{cdt_idx}}' range='{{cdtoptionlist}}' range-key='chengsexuanxiang'> 
     <view class='flex-row flex-center'>
-    <input class='h5 flex-1 margin-left-10' disabled='true' name='condition' placeholder='请选择机型成色' value='{{condition[cdt]}}' bindinput='condition_input'> </input>
+     <input class='h5 flex-1 margin-left-10' disabled='true' name='condition' placeholder='请选择机型成色' value='{{cdtoptionlist[cdt_idx].chengsexuanxiang}}' bindinput='condition_input'> </input> 
+           
     <image class='felx-3 icon-15' src='{{uploadpath}}resource/{{res.bottom_icon}}'></image>
     </view>
     </picker>
