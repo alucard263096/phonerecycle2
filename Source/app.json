@@ -1,7 +1,7 @@
 {
   "pages":[
-    "pages/home/home",
     "pages/problem/problem",
+    "pages/home/home",
     "pages/fastrecovery/fastrecovery",
     "pages/myorder/myorder",
     "pages/selectmodel/selectmodel",

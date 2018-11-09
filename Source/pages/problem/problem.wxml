@@ -10,18 +10,18 @@
   </view>
 </view>
 
- <!-- <view>{{blockseq}}测试定价，后续删除：{{price}} - {{minusprice}} = {{totalprice}}</view>  -->
+  <!--<view>{{blockseq}} {{anwser}}测试定价，后续删除：{{price}} - {{minusprice}} = {{totalprice}}</view> -->
 <view class=" flex-row column " wx:for="{{timu}}" wx:key="k" wx:for-index="idx" hidden='{{timu[idx-1].xuanle==""}}' wx:if="{{blockseq==-1||idx<blockseq+1}}">
 
   <view class='flex-row flex-center ' style='margin-left:20rpx;'>
-    <view>{{idx+1}}{{xuanle}}</view>
+    <view>{{idx+1}}</view>
     <view class='margin-left-10 '>{{item.name}}</view>
   </view>
 
   <view class='prb_mid margin-20   flex-row column'>
     <radio-group class="radio-group"  id="{{idx}}" bindchange="bindradio">
-     <label class=" flex-row flex-center margin-top-10" wx:for="{{item.options}}" wx:key="k">
-      <radio class='radio' value="{{item}}" color='#2699EC'/><view>{{item}}</view>
+     <label class=" flex-row flex-center margin-top-10" wx:for="{{item.options}}" wx:key="k" wx:for-item="csv">
+      <radio class='radio' value="{{csv}}" color='#2699EC' checked='{{csv==item.xuanle}}'  /><view>{{csv}}</view>
      </label>
     </radio-group>
   </view>
